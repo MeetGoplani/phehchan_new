@@ -1,0 +1,113 @@
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+
+const OtherCapabilities = () => {
+  return (
+    <div className="w-full py-16 bg-white">
+      <div className="container mx-auto px-4">
+        {/* Main Heading */}
+        <h2 className="text-4xl font-bold text-center mb-4">
+          Other Capabilities
+        </h2>
+        
+        <p className="text-center text-lg mb-12">
+          Let us help you with specialized legal services
+        </p>
+        
+        {/* Two Column Layout */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          
+          {/* Tech Column */}
+          <Link href="/Tech" className="block">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <h3 className="text-2xl font-bold">Tech</h3>
+                </div>
+                
+                <p className="text-gray-600 mb-6">
+                  Legal solutions for technology companies and digital products
+                </p>
+                
+                <div className="space-y-3">
+                  {/* Tech Services */}
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Software Licensing Agreements</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Privacy Policies & Terms of Service</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Intellectual Property Protection</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Data Protection Compliance</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">SaaS Agreements</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+          
+          {/* Ads Column */}
+          <Link href="/ads" className="block">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <h3 className="text-2xl font-bold">Marketing</h3>
+                </div>
+                
+                <p className="text-gray-600 mb-6">
+                  Legal compliance for advertising and marketing campaigns
+                </p>
+                
+                <div className="space-y-3">
+                  {/* Ads Services */}
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Ad Content Compliance Review</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Social Media Advertising Guidelines</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Promotional Disclosures</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Influencer Marketing Contracts</span>
+                  </div>
+                  
+                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
+                    <span className="text-pink-500 mr-2">•</span>
+                    <span className="text-gray-700">Contest & Sweepstakes Rules</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default OtherCapabilities;

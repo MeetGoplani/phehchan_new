@@ -1112,7 +1112,7 @@ const defaultItems = [
     image: "https://picsum.photos/900/900?grayscale",
     link: "https://google.com/",
     title: "",
-    description: "",
+    description: "hold to see the magic happen",
   },
 ];
 
@@ -1120,6 +1120,18 @@ export default function InfiniteMenu({ items = [] }) {
   const canvasRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
   const [isMoving, setIsMoving] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -1128,6 +1140,7 @@ export default function InfiniteMenu({ items = [] }) {
     const handleActiveItem = (index) => {
       const itemIndex = index % items.length;
       setActiveItem(items[itemIndex]);
+      setCurrentIndex(itemIndex);
     };
 
     if (canvas) {
@@ -1163,6 +1176,12 @@ export default function InfiniteMenu({ items = [] }) {
     }
   };
 
+  const handleNextItem = () => {
+    const nextIndex = (currentIndex + 1) % items.length;
+    setCurrentIndex(nextIndex);
+    setActiveItem(items[nextIndex]);
+  };
+
   return (
     <div className="relative w-full h-full">
       <canvas
@@ -1170,10 +1189,15 @@ export default function InfiniteMenu({ items = [] }) {
         ref={canvasRef}
         className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing"
       />
+      
+      {/* Mobile-only instruction text */}
+      <div className="block md:hidden text-center text-sm mt-2 text-white absolute bottom-2 left-0 right-0 z-10">
+        hold to see the magic happen
+      </div>
 
       {activeItem && (
         <>
-          {/* Title */}
+          {/* Title - Hidden on mobile */}
           <h2
             className={`
           select-none
@@ -1187,6 +1211,7 @@ export default function InfiniteMenu({ items = [] }) {
           -translate-y-1/2
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          ${isMobile ? "hidden" : ""}
           ${
             isMoving
               ? "opacity-0 pointer-events-none duration-[100ms]"
@@ -1197,7 +1222,7 @@ export default function InfiniteMenu({ items = [] }) {
             {activeItem.title}
           </h2>
 
-          {/* Description */}
+          {/* Description - Hidden on mobile */}
           <p
             className={`
           select-none
@@ -1208,6 +1233,7 @@ export default function InfiniteMenu({ items = [] }) {
           right-[1%]
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          ${isMobile ? "hidden" : ""}
           ${
             isMoving
               ? "opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2"
@@ -1218,7 +1244,7 @@ export default function InfiniteMenu({ items = [] }) {
             {activeItem.description}
           </p>
 
-          {/* Action Button */}
+          {/* Action Button - Adjusted for mobile */}
           <div
             onClick={handleButtonClick}
             className={`
@@ -1239,7 +1265,9 @@ export default function InfiniteMenu({ items = [] }) {
           ${
             isMoving
               ? "bottom-[-80px] opacity-0 pointer-events-none duration-[100ms] scale-0 -translate-x-1/2"
-              : "bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2"
+              : isMobile
+                ? "bottom-[11.5em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2"
+                : "bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2"
           }
         `}
           >
@@ -1247,6 +1275,43 @@ export default function InfiniteMenu({ items = [] }) {
               &#x2197;
             </p>
           </div>
+
+          {/* Mobile Navigation Controls */}
+          {isMobile && (
+            <div className="absolute bottom-8 right-8 z-20">
+              {/* <button 
+                className="bg-black text-white rounded-full p-3 flex items-center justify-center shadow-lg"
+                onClick={handleNextItem}
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-6 w-6" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M9 5l7 7-7 7" 
+                  />
+                </svg>
+              </button> */}
+            </div>
+          )}
+
+          {/* Mobile Title and Description */}
+          {isMobile && (
+            <div className="absolute top-8 left-8 right-8 z-10">
+              <h2 className="text-2xl font-bold text-white  bg-opacity-50 p-2 rounded">
+                {activeItem.title}
+              </h2>
+              <p className="text-white bg-opacity-50 p-2 mt-2 rounded">
+                {activeItem.description}
+              </p>
+            </div>
+          )}
         </>
       )}
     </div>

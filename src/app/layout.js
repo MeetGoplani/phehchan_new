@@ -1,6 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/common/navbar";
+import Navbar from "@/components/section/common/navbar";
+import Footer from "@/components/section/common/footer";
+import LogoSlider from "@/components/section/ui/rotatingimg";
+import BottomNavbar from "@/components/section/common/navbar";
+import Project52Button from "@/components/section/ui/Project52Button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +29,10 @@ export default function RootLayout({ children }) {
       >
 
         {children}
+        <Project52Button />
         <Navbar />
+        <LogoSlider />
+        <Footer />
       </body>
     </html>
   );
