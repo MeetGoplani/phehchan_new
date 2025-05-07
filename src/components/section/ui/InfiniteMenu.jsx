@@ -79,23 +79,10 @@ void main() {
     vec2 cellSize = vec2(1.0) / vec2(float(cellsPerRow));
     vec2 cellOffset = vec2(float(cellX), float(cellY)) * cellSize;
 
-    // Get texture dimensions and calculate aspect ratio
-    ivec2 texSize = textureSize(uTex, 0);
-    float imageAspect = float(texSize.x) / float(texSize.y);
-    float containerAspect = 1.0; // Assuming square container
-    
-    // Calculate cover scale factor
-    float scale = max(imageAspect / containerAspect, 
-                     containerAspect / imageAspect);
-    
-    // Rotate 180 degrees and adjust UVs for cover
+    // Rotate 180 degrees but don't scale the UVs
     vec2 st = vec2(vUvs.x, 1.0 - vUvs.y);
-    st = (st - 0.5) * scale + 0.5;
     
-    // Clamp coordinates to prevent repeating
-    st = clamp(st, 0.0, 1.0);
-    
-    // Map to the correct cell in the atlas
+    // Map to the correct cell in the atlas without scaling
     st = st * cellSize + cellOffset;
     
     outColor = texture(uTex, st);
@@ -835,6 +822,10 @@ class InfiniteGridMenu {
     canvas.width = this.atlasSize * cellSize;
     canvas.height = this.atlasSize * cellSize;
 
+    // Fill canvas with white background instead of transparent
+    ctx.fillStyle = "rgba(255,255,255,1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     Promise.all(
       this.items.map(
         (item) =>
@@ -849,7 +840,30 @@ class InfiniteGridMenu {
       images.forEach((img, i) => {
         const x = (i % this.atlasSize) * cellSize;
         const y = Math.floor(i / this.atlasSize) * cellSize;
-        ctx.drawImage(img, x, y, cellSize, cellSize);
+
+        // Calculate dimensions to maintain aspect ratio (object-contain style)
+        const imgWidth = img.width;
+        const imgHeight = img.height;
+        const aspectRatio = imgWidth / imgHeight;
+
+        // Reduce size to half by using cellSize/2 as the maximum dimension
+        let drawWidth, drawHeight;
+        if (aspectRatio > 1) {
+          // Wider than tall
+          drawWidth = Math.min(cellSize / 1.5, imgWidth / 1.5);
+          drawHeight = drawWidth / aspectRatio;
+        } else {
+          // Taller than wide
+          drawHeight = Math.min(cellSize / 1.5, imgHeight / 1.5);
+          drawWidth = drawHeight * aspectRatio;
+        }
+
+        // Center the image in the cell
+        const offsetX = x + (cellSize - drawWidth) / 2;
+        const offsetY = y + (cellSize - drawHeight) / 2;
+
+        // Draw the image with proper dimensions
+        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       });
 
       gl.bindTexture(gl.TEXTURE_2D, this.tex);

@@ -1,7 +1,7 @@
 
 export const items = [
   {
-    image: 'https://www.phehchan.com/img13.jpg',
+    image: '/zepto.png',
     link: 'https://google.com/',
  
   },
