@@ -5,9 +5,29 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+// Custom hook for media query
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const media = window.matchMedia(query);
+    setMatches(media.matches);
+
+    const listener = () => setMatches(media.matches);
+    media.addEventListener('change', listener);
+    
+    return () => media.removeEventListener('change', listener);
+  }, [query]);
+
+  return matches;
+}
+
 const Project52Button = () => {
   const [isNearFooter, setIsNearFooter] = useState(false);
   const { scrollYProgress } = useScroll();
+  const isMobile = useMediaQuery('(max-width: 768px)');
   
   // Transform scale based on scroll position
   const scale = useTransform(
@@ -42,17 +62,14 @@ const Project52Button = () => {
         target="_blank"
         rel="noopener noreferrer"
         className={`flex items-center gap-2 bg-red-500 text-white rounded-lg px-4 py-3 shadow-lg hover:bg-red-600 transition-colors duration-200`}
-        style={{
-          // Fixed size for mobile devices
-          "@media (max-width: 768px)": {
-            width: "70px",
-            height: "64px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "0",
-          },
-        }}
+        style={isMobile ? {
+          width: "70px",
+          height: "64px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "0",
+        } : {}}
       >
         {!isNearFooter ? (
           <Image

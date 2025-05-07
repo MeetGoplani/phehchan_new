@@ -1,14 +1,11 @@
-import AboutSection from "@/components/section/aboutsection";
+"use client";
+import dynamic from "next/dynamic";
+
 import ThreePartText from "@/components/section/common/3parttext";
-import FAQWithImage from "@/components/section/common/faqwithimg";
-import FullWidthText from "@/components/section/common/fullwidthtext";
-import { PhotoServiceCard } from "@/components/section/common/photoservicecard";
-import ThreePartSection from "@/components/section/common/threepartsection";
-import ThreePartSection2 from "@/components/section/common/threepartsection2";
-import LogoSlider from "@/components/section/ui/rotatingimg";
-import TextFlow from "@/components/section/ui/textflow";
-import { techSolutions } from "@/lib/constants";
-import FullWidthBanner from "@/components/section/common/fullwidthimg";
+const FullWidthBanner = dynamic(
+  () => import("@/components/section/common/fullwidthimg"),
+  { ssr: false }
+);
 
 import React from "react";
 

@@ -1,11 +1,11 @@
-import AboutSection from "@/components/section/aboutsection";
+"use client";
+import dynamic from 'next/dynamic';
 import FullWidthBanner from "@/components/section/common/fullwidthimg";
 
-import FAQWithImage from "@/components/section/common/faqwithimg";
-import ThreePartSection from "@/components/section/common/threepartsection";
-import ThreePartSection2 from "@/components/section/common/threepartsection2";
-import LogoSlider from "@/components/section/ui/rotatingimg";
-import TextFlow from "@/components/section/ui/textflow";
+// Dynamically import components that might use window
+const AboutSection = dynamic(() => import("@/components/section/aboutsection"), { ssr: false });
+const FAQWithImage = dynamic(() => import("@/components/section/common/faqwithimg"), { ssr: false });
+
 import React from "react";
 
 const AboutPage = () => {

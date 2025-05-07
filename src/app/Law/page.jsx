@@ -1,17 +1,10 @@
-import AboutSection from "@/components/section/aboutsection";
-import ThreePartText from "@/components/section/common/3parttext";
-import FullWidthBanner from "@/components/section/common/fullwidthimg";
-
-
-import FAQWithImage from "@/components/section/common/faqwithimg";
-import FullWidthText from "@/components/section/common/fullwidthtext";
-import { PhotoServiceCard } from "@/components/section/common/photoservicecard";
-import ThreePartSection from "@/components/section/common/threepartsection";
-import ThreePartSection2 from "@/components/section/common/threepartsection2";
-import LogoSlider from "@/components/section/ui/rotatingimg";
-import TextFlow from "@/components/section/ui/textflow";
-import { techSolutions } from "@/lib/constants";
+"use client"
+import dynamic from 'next/dynamic';
 import React from "react";
+
+// Dynamically import components that might use window
+const ThreePartText = dynamic(() => import("@/components/section/common/3parttext"), { ssr: false });
+const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwidthimg"), { ssr: false });
 
 const LawPage = () => {
   return (

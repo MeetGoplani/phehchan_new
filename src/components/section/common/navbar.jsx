@@ -7,13 +7,22 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false); // Add this new state
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const servicesRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const pathname = usePathname();
 
+  // Add this toggle function
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prev => !prev);
+  };
+
+  // Add this toggle function for services dropdown
+  const toggleServicesDropdown = () => {
+    setIsServicesOpen(prev => !prev);
+  };
   const navItems = [
     { name: "Home", path: "/", icon: "home" },
     { name: "About", path: "/about", icon: null },
@@ -31,6 +40,8 @@ const Navbar = () => {
   // Function to check if footer is visible
   useEffect(() => {
     const checkFooterVisibility = () => {
+      if (typeof window === 'undefined') return; // Add this check
+      
       const footer = document.querySelector("footer");
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
@@ -39,14 +50,16 @@ const Navbar = () => {
       }
     };
 
-    // Initial check
-    checkFooterVisibility();
-
-    // Add scroll event listener
-    window.addEventListener("scroll", checkFooterVisibility);
-
-    // Cleanup
-    return () => window.removeEventListener("scroll", checkFooterVisibility);
+    // Initial check - only run on client
+    if (typeof window !== 'undefined') {
+      checkFooterVisibility();
+      
+      // Add scroll event listener
+      window.addEventListener("scroll", checkFooterVisibility);
+      
+      // Cleanup
+      return () => window.removeEventListener("scroll", checkFooterVisibility);
+    }
   }, []);
 
   // Function to render appropriate icon based on name or current page
@@ -305,8 +318,13 @@ const Navbar = () => {
     };
   }, []);
 
-  // Determine which animation variant to use
+  // Determine which animation variant to use - make safe for SSR
   const getNavVariant = () => {
+    if (typeof window === 'undefined') {
+      // Default for server-side rendering
+      return "expanded";
+    }
+    
     if (window.innerWidth <= 768) { // Mobile
       return isMobileMenuOpen ? "mobileExpanded" : "mobileMinimized";
     } else { // Desktop
@@ -319,6 +337,8 @@ const Navbar = () => {
       className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40 mx-auto w-full max-w-xl"
       onMouseEnter={() => isMinimized && setIsMinimized(false)}
       onMouseLeave={() => {
+        if (typeof window === 'undefined') return; // Add this check
+        
         const footer = document.querySelector("footer");
         if (footer) {
           const footerRect = footer.getBoundingClientRect();
@@ -393,7 +413,7 @@ const Navbar = () => {
                   className="px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block text-white w-full text-left flex justify-between items-center"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setIsServicesOpen(!isServicesOpen);
+                    toggleServicesDropdown(); // Use the toggle function
                   }}
                 >
                   <span>Other Capabilities</span>
@@ -444,7 +464,7 @@ const Navbar = () => {
                 href="/contact"
                 className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
                   pathname === "/contact"
-                    ? "text-red-500 bg-white bg-opacity-90"
+                    ? "text-red-500 bg-white bg-opacity-90 !mr-8" // Added pr-8 for right padding
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -597,7 +617,7 @@ const Navbar = () => {
             <div className="md:hidden flex items-center justify-center text-white p-1">
               <button
                 className="bg-white bg-opacity-90 text-red-500 rounded-full flex items-center justify-center w-full h-full"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                onClick={toggleMobileMenu} // Use the toggle function
                 aria-label="Toggle menu"
                 style={{ width: "48px", height: "48px", padding: "0" }}
               >
@@ -655,7 +675,7 @@ const Navbar = () => {
             <AnimatePresence>
               {!isMinimized && (
                 <motion.div
-                  className="hidden md:flex flex-1 justify-around items-center pl-4 space-x-1"
+                  className="hidden md:flex flex-1 justify-around items-center pl-4 pr-4 space-x-1"
                   initial="hidden"
                   animate="visible"
                   exit="hidden"

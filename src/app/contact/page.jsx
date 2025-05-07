@@ -89,9 +89,9 @@ const ContactPage = () => {
             <div className="p-6 flex-1 flex flex-col">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Visit Us</h2>
               <div className="flex-1 bg-gray-200 rounded-lg overflow-hidden mb-6 min-h-[300px]">
-                {/* Replace the iframe src with your actual Google Maps embed URL */}
+                {/* Google Maps embed with updated address */}
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.41709517332!2d72.7454408!3d21.1591892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938b042!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1715234567890!5m2!1sen!2sin" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.0107714213766!2d72.77621461492353!3d21.154559985929887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04db3a3975e5d%3A0x4a5c2c6b76e0e7d4!2sPhehchan%20Brand%20Solutions%2C%20511%2C%205th%20Floor%2C%20SNS%20Platina%2C%20Vesu%2C%20Surat%2C%20Gujarat%20395007!5e0!3m2!1sen!2sin!4v1715234567890!5m2!1sen!2sin" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -106,7 +106,7 @@ const ContactPage = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  Pehchan Office, Ring Road, Surat, Gujarat 395002
+                  Phehchan Brand Solutions, 511, 5th Floor, SNS Platina, nr. Someshwara Enclave, Someshwara Enclave, Vesu, Surat, Gujarat 395007
                 </p>
                 <p className="flex items-center text-gray-600">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

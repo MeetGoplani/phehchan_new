@@ -1,15 +1,16 @@
-import FullWidthBanner from "@/components/section/common/fullwidthimg";
-import FullWidthText from "@/components/section/common/fullwidthtext";
-import HalfImageHalfText from "@/components/section/common/halfimghalftext";
-import HalfImageHalfTextLeft from "@/components/section/common/halfimghalftext2";
-import FlowingMenu from "@/components/section/ui/flowingmenu";
-import FlowingMenu2 from "@/components/section/ui/flowingmenu2";
-import FlowingMenu3 from "@/components/section/ui/flowingmenu3";
-import Project52Button from "@/components/section/ui/Project52Button";
-import InfiniteMenu from "@/components/section/ui/InfiniteMenu";
-import OtherCapabilities from "@/components/section/ui/othercapabilities";
-// import LogoSlider from "@/components/section/ui/rotatingimg";
-import { demoItems, items } from "@/lib/constants";
+"use client";
+import dynamic from 'next/dynamic';
+
+// Dynamically import components that might use window
+const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwidthimg"), { ssr: false });
+const FullWidthText = dynamic(() => import("@/components/section/common/fullwidthtext"), { ssr: false });
+const HalfImageHalfText = dynamic(() => import("@/components/section/common/halfimghalftext"), { ssr: false });
+const FlowingMenu = dynamic(() => import("@/components/section/ui/flowingmenu"), { ssr: false });
+const FlowingMenu3 = dynamic(() => import("@/components/section/ui/flowingmenu3"), { ssr: false });
+const InfiniteMenu = dynamic(() => import("@/components/section/ui/InfiniteMenu"), { ssr: false });
+const OtherCapabilities = dynamic(() => import("@/components/section/ui/othercapabilities"), { ssr: false });
+
+import {items } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -30,7 +31,6 @@ export default function Home() {
       <HalfImageHalfText />
       <FlowingMenu3 />
       <OtherCapabilities />
-      
     </>
   );
 }

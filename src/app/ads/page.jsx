@@ -1,16 +1,10 @@
-import AboutSection from "@/components/section/aboutsection";
-import ThreePartText from "@/components/section/common/3parttext";
-import FAQWithImage from "@/components/section/common/faqwithimg";
-import FullWidthText from "@/components/section/common/fullwidthtext";
-import { PhotoServiceCard } from "@/components/section/common/photoservicecard";
-import ThreePartSection from "@/components/section/common/threepartsection";
-import ThreePartSection2 from "@/components/section/common/threepartsection2";
-import LogoSlider from "@/components/section/ui/rotatingimg";
-import TextFlow from "@/components/section/ui/textflow";
-import { techSolutions } from "@/lib/constants";
-import FullWidthBanner from "@/components/section/common/fullwidthimg";
-
+"use client"
+import dynamic from 'next/dynamic';
 import React from "react";
+
+// Dynamically import components that might use window
+const ThreePartText = dynamic(() => import("@/components/section/common/3parttext"), { ssr: false });
+const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwidthimg"), { ssr: false });
 
 const AdsPage = () => {
   return (
@@ -40,7 +34,7 @@ const AdsPage = () => {
       <ThreePartText
         heading="OUR EXPERTISE"
         subheading="Strategic Digital Marketing for Growth and Engagement"
-        content="Maximize your brand’s impact with a comprehensive digital marketing approach that combines targeted social media strategies, bespoke campaigns, and performance-driven execution. Build a strong online presence and connect directly with your audience through content that educates, entertains, and inspires loyalty. Leverage digital platforms to drive traffic, generate leads, and increase conversions—while continuously optimizing for results using advanced tracking and analytics. This integrated strategy ensures increased visibility, stronger community engagement, and a measurable return on investment."
+        content="Maximize your brand's impact with a comprehensive digital marketing approach that combines targeted social media strategies, bespoke campaigns, and performance-driven execution. Build a strong online presence and connect directly with your audience through content that educates, entertains, and inspires loyalty. Leverage digital platforms to drive traffic, generate leads, and increase conversions—while continuously optimizing for results using advanced tracking and analytics. This integrated strategy ensures increased visibility, stronger community engagement, and a measurable return on investment."
         rightContent=""
         // waitlistLink={{
         //   text: "Join the Waitlist",
@@ -90,7 +84,7 @@ const AdsPage = () => {
       <ThreePartText
         heading=""
         subheading="SEO"
-        content="Improve your website’s visibility on search engines through optimized content and proven SEO techniques that drive organic growth."
+        content="Improve your website's visibility on search engines through optimized content and proven SEO techniques that drive organic growth."
         rightContent=""
         // waitlistLink={{
         //   text: "Join the Waitlist",
@@ -124,7 +118,7 @@ const AdsPage = () => {
       <ThreePartText
         heading=""
         subheading="Branding"
-        content="Build a distinctive brand identity that captures your business’s essence and differentiates you in the marketplace."
+        content="Build a distinctive brand identity that captures your business's essence and differentiates you in the marketplace."
         rightContent=""
         // waitlistLink={{
         //   text: "Join the Waitlist",

@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const FullWidthBanner = ({
   altText = "Banner Image",
@@ -21,25 +21,31 @@ const FullWidthBanner = ({
 
   // Set the banner height to match the viewport height
   useEffect(() => {
-    const updateHeight = () => {
-      setHeight(`${window.innerHeight}px`);
-    };
+    // Only run this effect on the client side
+    if (typeof window !== "undefined") {
+      const updateHeight = () => {
+        setHeight(`${window.innerHeight}px`);
+      };
 
-    // Initial height
-    updateHeight();
+      // Initial height
+      updateHeight();
 
-    // Update height on resize
-    window.addEventListener("resize", updateHeight);
+      // Update height on resize
+      window.addEventListener("resize", updateHeight);
 
-    // Cleanup
-    return () => window.removeEventListener("resize", updateHeight);
+      // Cleanup
+      return () => window.removeEventListener("resize", updateHeight);
+    }
   }, []);
+
+  // Use a default height for server-side rendering
+  const bannerHeight = typeof window === "undefined" ? "100vh" : height;
 
   return (
     <div
       className="relative w-full overflow-hidden"
       style={{
-        height,
+        height: bannerHeight,
         background: `linear-gradient(135deg, ${gradientStart}, ${gradientEnd})`,
       }}
     >
