@@ -199,3 +199,40 @@ export const portfolioImages = {
     }
   ]
 };
+
+
+export const carouselData = [
+  {
+    subtext: "We provide innovative solutions for your business needs with a focus on quality and customer satisfaction.",
+    points: [
+      "Exceptional quality service",
+      "Customer-centric approach",
+      "Innovative solutions"
+    ]
+  },
+  {
+    subtext: "Our team of experts is dedicated to delivering the best results for your projects on time and within budget.",
+    points: [
+      "Expert team members",
+      "Timely delivery",
+      "Budget-friendly options"
+    ]
+  },
+  {
+    subtext: "We believe in building long-term relationships with our clients through trust, transparency, and excellence.",
+    points: [
+      "Trust and transparency",
+      "Excellence in delivery",
+      "Long-term partnerships"
+    ]
+  },
+  {
+    subtext: "Your first carousel text here.",
+    points: [
+      "First point",
+      "Second point",
+      "Third point"
+    ]
+  }
+  // Add more slides as needed
+];

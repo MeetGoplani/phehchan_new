@@ -7,14 +7,12 @@ const AboutSection = dynamic(() => import("@/components/section/aboutsection"), 
 const FAQWithImage = dynamic(() => import("@/components/section/common/faqwithimg"), { ssr: false });
 
 import React from "react";
+import TextFlow from '@/components/section/ui/textflow';
 
 const AboutPage = () => {
   return (
     <>
-      <FullWidthBanner
-        customTitle=""
-        customSubtitle="About Phehchan"
-      />
+    
       <AboutSection />
 
       {/* <TextFlow /> */}
@@ -23,29 +21,31 @@ const AboutPage = () => {
         items={[
           {
             id: 1,
-            title: "Step One: THINK",
-            content: "We spend majority of our time on the drawing board.",
+            title: "1. Think: Strategy First",
+            content:
+              "We begin at the drawing board — deeply understanding your business, market, audience, and risks. This stage is all about research, clarity, and defining your brand’s unique identity with a long-term view.",
           },
           {
             id: 2,
-            title: "Step 2: CREATE",
-            content: "Make it simple, but significant.",
+            title: "2. Build: Smart Brand Systems",
+            content:"From messaging and design systems to campaign frameworks, we build everything your brand needs — backed by legal reviews and structured to support safe, scalable marketing.",
           },
           {
             id: 3,
-            title: "Step 3:PERFORM",
-            content: "Success comes from standing out, not fitting in.",
+            title: "3. Execute: Flawless, Legally Sound Delivery",
+            content: "We launch high-impact campaigns across digital, print, and influencer platforms — each piece legally vetted, brand-aligned, and performance-ready.",
           },
           {
             id: 4,
-            title: "Step 4: OPTIMIZE",
-            content: "If it's good, make it better.",
+            title: " 4. Optimize: Grow With Confidence",
+            content: "Through our Fractional CMO model, we monitor, refine, and lead your ongoing marketing efforts — ensuring your brand evolves responsibly, effectively, and without legal missteps.",
           },
           // Additional items...
         ]}
         imageSrc="/imgphehchan.png"
         imageAlt="Growth strategy process"
       />
+      
     </>
   );
 };

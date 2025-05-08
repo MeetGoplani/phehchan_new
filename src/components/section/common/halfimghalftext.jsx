@@ -6,8 +6,8 @@ import Link from "next/link";
 const HalfImageHalfText = ({
   subtitle = "A LAWYER",
   title = "Meet Apurva",
-  name = "Andrea Prunariu",
-  description = "is a dual-licensed immigration lawyer (Ontario Canada & California, US) who experienced the challenges of immigrating firsthand. With over 10 years of experience and a high success rate, she combines her personal journey with extensive legal expertise to provide compassionate, effective solutions for U.S. and Canadian immigration needs.",
+  name = "Brands & communicating expert",
+  description = "With over twelve years in the creative industry as a professional photographer, Apurva Mehra has cultivated a sharp eye for aesthetics, storytelling, and innovation. His journey later expanded into the world of law, where he graduated with an LLB in Business Administration from Auro University. This unique combination of creative vision and strategic, detail-driven thinking sets him apart as a leader.Fueling his passion for branding and marketing, Apurva further honed his skills at the Advertising Standards Council of India (ASCI), where he deepened his understanding of brand communication ethics and standards.Apurva merges creativity, legal expertise, and strategic brand building to craft identities that are authentic, impactful, and enduring. His leadership is rooted in a belief that real brands aren’t built overnight; they are shaped by passion, clarity, and resilience over time.",
   imageUrl = "/imgphehchan.png",
   imageAlt = "Profile image",
   imagePosition = "right",
@@ -48,7 +48,11 @@ const HalfImageHalfText = ({
 
               <div className="text-lg space-y-4 text-gray-700 mb-8">
                 <p>
-                  <span className="font-bold">{name}</span> {description}
+                  <span className="font-bold">
+                    {name}
+                    <br></br>
+                  </span>{" "}
+                  {description}
                 </p>
               </div>
 

@@ -7,7 +7,7 @@ const FullWidthBanner = ({
   overlay = false,
   overlayColor = "rgba(0, 0, 0, 1)",
   title = "Phehchan",
-  subtitle = "We help brands make their content legally strong.",
+  subtitle = "Where Strategy Meets Storytelling — and Compliance Builds Trust.",
   buttonText = "Book a call",
   buttonLink = "https://cal.com/phehchan",
   gradientStart = "black",
@@ -167,14 +167,14 @@ const FullWidthBanner = ({
 
         {/* Custom Title (if provided) */}
         {customTitle && (
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 mt-4">
+          <h1 className="sm:text-2xl md:text-2xl  mt-8 font-bold text-white mb-0">
             {customTitle}
           </h1>
         )}
 
         {/* Custom Subtitle or Default Subtitle */}
         {(customSubtitle || subtitle) && (
-          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mt-24">
+          <p className="text-2xl md:text-2xl text-white mt-0 max-w-2xl font-bold">
             {customSubtitle || subtitle}
           </p>
         )}
@@ -182,7 +182,7 @@ const FullWidthBanner = ({
         {buttonText && (
           <a
             href={buttonLink}
-            className="inline-flex items-center px-6 py-3 bg-white text-pink-600 rounded-full font-medium hover:bg-opacity-90 transition-all"
+            className="inline-flex items-center px-6 py-3 mt-15 bg-white text-pink-600 rounded-full font-medium hover:bg-opacity-90 transition-all"
             target="_blank"
             rel="noopener noreferrer"
           >

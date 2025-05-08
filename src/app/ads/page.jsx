@@ -1,4 +1,6 @@
 "use client"
+import Services from '@/components/section/common/services';
+import TextCarousel from '@/components/section/common/textcarousel';
 import dynamic from 'next/dynamic';
 import React from "react";
 
@@ -9,10 +11,7 @@ const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwi
 const AdsPage = () => {
   return (
     <>
-      <FullWidthBanner
-        customTitle=""
-        customSubtitle="Marketing"
-      />
+      <FullWidthBanner customTitle="" customSubtitle="Marketing" />
       {/* <div className="lg:pb-8 pb-6 gap-4 flex flex-col lg:max-w-3xl mx-auto lg:text-center justify-center items-center "></div>
       <FullWidthText
         companyName="Our Expertise"
@@ -30,40 +29,38 @@ const AdsPage = () => {
           />
         ))}
       </div> */}
-
       <ThreePartText
         heading="OUR EXPERTISE"
-        subheading="Strategic Digital Marketing for Growth and Engagement"
-        content="Maximize your brand's impact with a comprehensive digital marketing approach that combines targeted social media strategies, bespoke campaigns, and performance-driven execution. Build a strong online presence and connect directly with your audience through content that educates, entertains, and inspires loyalty. Leverage digital platforms to drive traffic, generate leads, and increase conversions—while continuously optimizing for results using advanced tracking and analytics. This integrated strategy ensures increased visibility, stronger community engagement, and a measurable return on investment."
+        subheading="Strategic Marketing Leadership"
+        content="Brand Audit & Market Positioning"
         rightContent=""
-        // waitlistLink={{
-        //   text: "Join the Waitlist",
-        //   subtext: "Reserve your early access.",
-        //   url: "#waitlist",
-        // }}
-        // surveyLink={{
-        //   text: "Take the Survey",
-        //   subtext: "Contribute to the vision.",
-        //   url: "#survey",
-        // }}
+        waitlistLink={{
+          text: "Internal brand equity assessment ",
+          subtext: "",
+          url: "#waitlist",
+        }}
+        surveyLink={{
+          text: "Competitive landscape analysis (SWOT, category mapping) Brand DNA document: purpose, values, differentiators",
+          subtext: "",
+          url: "#survey",
+        }}
       />
       <ThreePartText
         heading=""
         subheading="Offline Marketing Activities"
         content="Connect with your customers through impactful direct marketing, promotional events, and print advertising that complement your digital strategies."
         rightContent=""
-        // waitlistLink={{
-        //   text: "Join the Waitlist",
-        //   subtext: "Reserve your early access.",
-        //   url: "#waitlist",
-        // }}
-        // surveyLink={{
-        //   text: "Take the Survey",
-        //   subtext: "Contribute to the vision.",
-        //   url: "#survey",
-        // }}
+        waitlistLink={{
+          text: "Join the Waitlist",
+          subtext: "Reserve your early access.",
+          url: "#waitlist",
+        }}
+        surveyLink={{
+          text: "Take the Survey",
+          subtext: "Contribute to the vision.",
+          url: "#survey",
+        }}
       />
-
       <ThreePartText
         heading=""
         subheading="Ideation & Execution"
@@ -80,7 +77,6 @@ const AdsPage = () => {
         //   url: "#survey",
         // }}
       />
-
       <ThreePartText
         heading=""
         subheading="SEO"
@@ -97,7 +93,6 @@ const AdsPage = () => {
         //   url: "#survey",
         // }}
       />
-
       <ThreePartText
         heading=""
         subheading="Media Buying"
@@ -114,7 +109,6 @@ const AdsPage = () => {
         //   url: "#survey",
         // }}
       />
-
       <ThreePartText
         heading=""
         subheading="Branding"
@@ -131,6 +125,7 @@ const AdsPage = () => {
         //   url: "#survey",
         // }}
       />
+      <Services />
     </>
   );
 };

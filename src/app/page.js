@@ -15,7 +15,7 @@ import {items } from "@/lib/constants";
 export default function Home() {
   return (
     <>
-      <FullWidthBanner />
+      <FullWidthBanner customTitle='WHERE STRATEGY MEETS STORYTELLING' customSubtitle='— AND COMPLIANCE BUILDS TRUST.'/>
       <FullWidthText
         companyName="PHEHCHAN"
         companyDescription="is a legal services platform helping brands make their content legally strong."

@@ -1,16 +1,9 @@
-"use client" 
-
+"use client";
 import * as React from "react"
 
 import { useMeasure } from "@uidotdev/usehooks"
-import { VariantProps, cva } from "class-variance-authority"
-import {
-  HTMLMotionProps,
-  MotionValue,
-  motion,
-  useScroll,
-  useTransform,
-} from "motion/react"
+import { cva } from "class-variance-authority";
+import { motion, useScroll, useTransform } from "motion/react";
 
 import { cn } from "@/lib/utils"
 
@@ -33,19 +26,8 @@ const processCardVariants = cva("flex border backdrop-blur-lg", {
     size: "md",
   },
 })
-interface ContainerScrollContextValue {
-  scrollYProgress: MotionValue<number>
-}
-interface ProcessCardProps
-  extends HTMLMotionProps<"div">,
-    VariantProps<typeof processCardVariants> {
-  itemsLength: number
-  index: number
-}
 
-const ContainerScrollContext = React.createContext<
-  ContainerScrollContextValue | undefined
->(undefined)
+const ContainerScrollContext = React.createContext(undefined)
 function useContainerScrollContext() {
   const context = React.useContext(ContainerScrollContext)
   if (!context) {
@@ -59,8 +41,8 @@ export const ContainerScroll = ({
   children,
   className,
   ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) => {
-  const scrollRef = React.useRef<HTMLDivElement>(null)
+}) => {
+  const scrollRef = React.useRef(null)
   const { scrollYProgress } = useScroll({
     target: scrollRef,
   })
@@ -69,46 +51,31 @@ export const ContainerScroll = ({
       <div
         ref={scrollRef}
         className={cn("relative min-h-[120vh]", className)}
-        {...props}
-      >
+        {...props}>
         {children}
       </div>
     </ContainerScrollContext.Provider>
-  )
+  );
 }
-export const ContainerSticky = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+export const ContainerSticky = React.forwardRef(({ className, ...props }, ref) => (
   <div
     ref={ref}
     className={cn("sticky left-0 top-0 w-full overflow-hidden", className)}
-    {...props}
-  />
+    {...props} />
 ))
 ContainerSticky.displayName = "ContainerSticky"
 
-export const ProcessCardTitle = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+export const ProcessCardTitle = React.forwardRef(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-6", className)} {...props} />
 ))
 ProcessCardTitle.displayName = "ProcessCardTitle"
 
-export const ProcessCardBody = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col gap-8 p-6", className)}
-    {...props}
-  />
+export const ProcessCardBody = React.forwardRef(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("flex flex-col gap-8 p-6", className)} {...props} />
 ))
 ProcessCardBody.displayName = "ProcessCardBody"
 
-export const ProcessCard: React.FC<ProcessCardProps> = ({
+export const ProcessCard = ({
   className,
   style,
   variant,
@@ -136,8 +103,7 @@ export const ProcessCard: React.FC<ProcessCardProps> = ({
         ...style,
       }}
       className={cn(processCardVariants({ variant, size }), className)}
-      {...props}
-    />
-  )
+      {...props} />
+  );
 }
 ProcessCard.displayName = "ProcessCard"

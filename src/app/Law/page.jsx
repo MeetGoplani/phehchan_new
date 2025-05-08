@@ -1,4 +1,5 @@
 "use client"
+import TextCarousel from '@/components/section/common/textcarousel';
 import dynamic from 'next/dynamic';
 import React from "react";
 
@@ -9,10 +10,7 @@ const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwi
 const LawPage = () => {
   return (
     <>
-      <FullWidthBanner 
-        customTitle=""
-        customSubtitle="Compliant Campaings"
-      />
+      <FullWidthBanner customTitle="" customSubtitle="Compliant Campaings" />
       {/* <div className="lg:pb-8 pb-6 gap-4 flex flex-col lg:max-w-3xl mx-auto lg:text-center justify-center items-center "></div>
       <FullWidthText
         companyName="Our Expertise"
@@ -30,7 +28,6 @@ const LawPage = () => {
           />
         ))}
       </div> */}
-
       <ThreePartText
         heading="OUR EXPERTISE"
         subheading="Pre-publication Advertising Advice and Due Diligence"
@@ -67,7 +64,6 @@ In case of adverse ruling, we work with your team to arrive at a solution that i
         //   url: "#survey",
         // }}
       />
-
       <ThreePartText
         heading=""
         subheading="Competitor Challenges"
@@ -88,6 +84,8 @@ We would be happy to assist you to build a strong case against competitor advert
         //   url: "#survey",
         // }}
       />
+      
+
     </>
   );
 };

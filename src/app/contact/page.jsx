@@ -87,36 +87,78 @@ const ContactPage = () => {
           {/* Map Section */}
           <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg md:w-1/2 flex flex-col min-h-[600px]">
             <div className="p-6 flex-1 flex flex-col">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Visit Us</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Visit Us
+              </h2>
               <div className="flex-1 bg-gray-200 rounded-lg overflow-hidden mb-6 min-h-[300px]">
                 {/* Google Maps embed with updated address */}
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.0107714213766!2d72.77621461492353!3d21.154559985929887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04db3a3975e5d%3A0x4a5c2c6b76e0e7d4!2sPhehchan%20Brand%20Solutions%2C%20511%2C%205th%20Floor%2C%20SNS%20Platina%2C%20Vesu%2C%20Surat%2C%20Gujarat%20395007!5e0!3m2!1sen!2sin!4v1715234567890!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen="" 
-                  loading="lazy" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.0107714213766!2d72.77621461492353!3d21.154559985929887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04db3a3975e5d%3A0x4a5c2c6b76e0e7d4!2sPhehchan%20Brand%20Solutions%2C%20511%2C%205th%20Floor%2C%20SNS%20Platina%2C%20Vesu%2C%20Surat%2C%20Gujarat%20395007!5e0!3m2!1sen!2sin!4v1715234567890!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
               <div className="space-y-3 mt-auto">
                 <p className="flex items-center text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2 text-[#D88C9A]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
                   </svg>
-                  Phehchan Brand Solutions, 511, 5th Floor, SNS Platina, nr. Someshwara Enclave, Someshwara Enclave, Vesu, Surat, Gujarat 395007
+                  Phehchan Brand Solutions, 511, 5th Floor, SNS Platina, nr.
+                  Someshwara Enclave, Someshwara Enclave, Vesu, Surat, Gujarat
+                  395007
                 </p>
                 <p className="flex items-center text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2 text-[#D88C9A]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
                   </svg>
                   contact@phehchan.com
                 </p>
                 <p className="flex items-center text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2 text-[#D88C9A]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                   +91 98765 43210
                 </p>
@@ -127,25 +169,37 @@ const ContactPage = () => {
           {/* Form Section */}
           <div className="bg-white rounded-lg overflow-hidden shadow-lg md:w-1/2 min-h-[600px]">
             <div className="p-6 h-full flex flex-col">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Send Us a Message
+              </h2>
+
               {submitSuccess ? (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-green-50 p-4 rounded-md mb-6"
                 >
-                  <p className="text-green-800">Thank you for your message! We'll get back to you soon.</p>
+                  <p className="text-green-800">
+                    Thank you for your message! We'll get back to you soon.
+                  </p>
                 </motion.div>
               ) : submitError ? (
                 <div className="bg-red-50 p-4 rounded-md mb-6">
-                  <p className="text-red-800">Something went wrong. Please try again later.</p>
+                  <p className="text-red-800">
+                    Something went wrong. Please try again later.
+                  </p>
                 </div>
               ) : null}
-              
-              <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
+
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-6 flex-1 flex flex-col"
+              >
                 <div className="mb-2">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Name
                   </label>
                   <input
@@ -155,12 +209,15 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A]"
                   />
                 </div>
-                
+
                 <div className="mb-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Email
                   </label>
                   <input
@@ -170,12 +227,15 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A]"
                   />
                 </div>
-                
+
                 <div className="mb-2">
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -184,12 +244,15 @@ const ContactPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A]"
                   />
                 </div>
-                
+
                 <div className="flex-1 mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Message
                   </label>
                   <textarea
@@ -199,17 +262,19 @@ const ContactPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 h-full min-h-[150px]"
+                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] h-full min-h-[150px]"
                   ></textarea>
                 </div>
-                
+
                 <div className="mt-auto">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full flex justify-center py-4 px-8 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-pink-600 mt-10 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                    className={`w-full flex justify-center py-4 px-8 border border-[#D88C9A] rounded-full shadow-sm text-base font-bold text-[#D88C9A] bg-white hover:bg-[#D88C9A] hover:text-white transition-colors duration-200 mt-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D88C9A] ${
+                      isSubmitting ? "opacity-75 cursor-not-allowed" : ""
+                    }`}
                   >
-                    {isSubmitting ? 'Sending...' : 'Submit'}
+                    {isSubmitting ? "Sending..." : "Submit"}
                   </button>
                 </div>
               </form>
