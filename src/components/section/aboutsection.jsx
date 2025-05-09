@@ -53,15 +53,15 @@ const AboutSection = () => {
               </div>
 
               {/* Mobile-only heading */}
-              <div className="block md:hidden mb-2">
-                <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-b from-blue-900 to-white text-transparent bg-clip-text">
+              <div className="block md:hidden mb-1">
+                <h1 className="text-5xl font-bold tracking-tight text-[#0f304f]">
                   ABOUT PBS
                 </h1>
               </div>
 
               {/* First two paragraphs with appropriate top margin to accommodate the heading */}
               <div className="space-y-4 text-gray-600 md:mt-24 mt-4">
-                <h1 className="pt-30  text-xl font-bold ">
+                <h1 className="md:pt-30  text-xl font-bold ">
                   We build brands people love
                 </h1>
                 <p className=" text-l">
@@ -99,8 +99,6 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="mt-12 space-y-4 text-gray-600"
         >
-          
-
           <div className="mt-6 flex space-x-4">
             {/* <a
               href="#"
