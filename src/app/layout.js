@@ -5,6 +5,7 @@ import Footer from "@/components/section/common/footer";
 import LogoSlider from "@/components/section/ui/rotatingimg";
 import BottomNavbar from "@/components/section/common/navbar";
 import Project52Button from "@/components/section/ui/Project52Button";
+import TawkToScript from "@/components/TawkToScript"; // Client-only component
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,12 +28,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
         {children}
         <Project52Button />
         <Navbar />
         <LogoSlider />
         <Footer />
+        <TawkToScript /> {/* Injects Tawk.to chat widget */}
       </body>
     </html>
   );
