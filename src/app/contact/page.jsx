@@ -14,7 +14,7 @@ const ContactPage = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  const [submitError, setSubmitError] = useState(null); // Changed to store error message
 
   // Hide logo slider on this page with CSS
   useEffect(() => {
@@ -53,20 +53,35 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitSuccess(false);
+    setSubmitError(null);
     
-    // Here you would typically send the form data to your backend
-    // For now, we'll simulate a successful submission after a delay
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitSuccess(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        setSubmitError(result.error || 'Failed to send message. Please try again.');
+        console.error('Submission error:', result);
+      }
     } catch (error) {
-      setSubmitError(true);
+      console.error('Network or other error:', error);
+      setSubmitError('An unexpected error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -166,7 +181,7 @@ const ContactPage = () => {
                 Send Us a Message
               </h2>
 
-              {submitSuccess ? (
+              {submitSuccess && ( // Simplified conditional rendering
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -176,19 +191,20 @@ const ContactPage = () => {
                     Thank you for your message! We'll get back to you soon.
                   </p>
                 </motion.div>
-              ) : submitError ? (
+              )}
+              {submitError && ( // Display error message
                 <div className="bg-red-50 p-4 rounded-md mb-6">
                   <p className="text-red-800">
-                    Something went wrong. Please try again later.
+                    {submitError}
                   </p>
                 </div>
-              ) : null}
+              )}
 
               <form
                 onSubmit={handleSubmit}
                 className="space-y-6 flex-1 flex flex-col"
               >
-                <div className="mb-2">
+                <div>
                   <label
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 mb-1"
@@ -202,11 +218,11 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A]"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm"
                   />
                 </div>
 
-                <div className="mb-2">
+                <div>
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700 mb-1"
@@ -220,16 +236,16 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A]"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm"
                   />
                 </div>
 
-                <div className="mb-2">
+                <div>
                   <label
                     htmlFor="phone"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Phone Number
+                    Phone (Optional)
                   </label>
                   <input
                     type="tel"
@@ -237,11 +253,11 @@ const ContactPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A]"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm"
                   />
                 </div>
 
-                <div className="flex-1 mb-6">
+                <div className="flex-1 flex flex-col">
                   <label
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 mb-1"
@@ -255,7 +271,7 @@ const ContactPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] h-full min-h-[150px]"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm flex-1"
                   ></textarea>
                 </div>
 
@@ -263,11 +279,9 @@ const ContactPage = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full flex justify-center py-4 px-8 border border-[#D88C9A] rounded-full shadow-sm text-base font-bold text-[#D88C9A] bg-white hover:bg-[#D88C9A] hover:text-white transition-colors duration-200 mt-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D88C9A] ${
-                      isSubmitting ? "opacity-75 cursor-not-allowed" : ""
-                    }`}
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#D88C9A] hover:bg-[#C77C8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D88C9A] disabled:opacity-50"
                   >
-                    {isSubmitting ? "Sending..." : "Submit"}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </div>
               </form>
