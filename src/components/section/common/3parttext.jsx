@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const ThreePartText = ({ 
@@ -9,6 +9,10 @@ const ThreePartText = ({
   content, 
   rightContent,
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <section className="py-6 sm:py-8 md:py-12">
       <div className="container mx-auto px-2 sm:px-4">
