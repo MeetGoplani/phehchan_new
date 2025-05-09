@@ -128,3 +128,21 @@
     @apply bg-background text-foreground;
     }
 }
+
+/* Add this to your CSS file */
+.infinite-menu-container {
+    height: 50vh;
+    /* Adjust this value as needed */
+    padding: 1rem 0;
+    /* Small padding at top and bottom */
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .infinite-menu-container {
+        height: 300px;
+        /* Fixed height for mobile */
+        padding: 0.5rem 0;
+        /* Smaller padding for mobile */
+    }
+}

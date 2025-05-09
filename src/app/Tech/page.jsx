@@ -12,30 +12,10 @@ import React from "react";
 const TechPage = () => {
   return (
     <>
-      <FullWidthBanner
-        customTitle=""
-        customSubtitle="Tech"
-      />
-      {/* <div className="lg:pb-8 pb-6 gap-4 flex flex-col lg:max-w-3xl mx-auto lg:text-center justify-center items-center "></div>
-      <FullWidthText
-        companyName="Our Expertise"
-        companyDescription=""
-        additionalText="At Phehchan, we bring over 30 years of experience and a deep understanding of advertising regulations in India We guide our clients to address advertising complaints and ASCI complaint redressalWe are up-to-date with the latest industry trends, ensuring that our clients receive the most relevant and effective strategies."
-        backgroundColor="#ffffff"
-        textColor="#000000"
-      />
-      <div className="grid grid-cols-1 lg:max-w-3xl mx-auto pb-6 gap-6 ">
-        {techSolutions.map((item, index) => (
-          <PhotoServiceCard
-            key={index}
-            service={item}
-            isOdd={index % 2 !== 0}
-          />
-        ))}
-      </div> */}
+     
 
       <ThreePartText
-        heading="OUR EXPERTISE"
+        heading="TECH EXPERTISE"
         subheading="Web Development"
         content="Build your digital presence with web development tailored to meet your personalized business needs. Our team specializes in creating responsive, fast-loading, and user-friendly websites to attract an audience. Whether you're aiming for an informative site or a complex e-commerce platform, we ensure your web presence is powerful and persuasive."
         rightContent=""
@@ -71,6 +51,23 @@ const TechPage = () => {
         heading=""
         subheading="CMS Solutions"
         content="Take control of your content with our robust CMS solutions. We customise platforms that make managing and updating your website's content simple and efficient. From WordPress to advanced enterprise systems, our CMS services ensure content is always crisp, relevant, and aligned with your marketing goals."
+        rightContent=""
+        // waitlistLink={{
+        //   text: "Join the Waitlist",
+        //   subtext: "Reserve your early access.",
+        //   url: "#waitlist",
+        // }}
+        // surveyLink={{
+        //   text: "Take the Survey",
+        //   subtext: "Contribute to the vision.",
+        //   url: "#survey",
+        // }}
+      />
+
+      <ThreePartText
+        heading=""
+        subheading="Project 52"
+        content="Need to streamline a process? There’s an app for that. No fuss, no hidden fees, just an instant setup. Every app simplifies your tasks and equips your team with the right tools. Consider the impact when everyone has seamless access to tools that integrate effortlessly with each other."
         rightContent=""
         // waitlistLink={{
         //   text: "Join the Waitlist",

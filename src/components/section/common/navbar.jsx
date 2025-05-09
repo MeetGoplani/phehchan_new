@@ -16,18 +16,19 @@ const Navbar = () => {
 
   // Add this toggle function
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(prev => !prev);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   // Add this toggle function for services dropdown
   const toggleServicesDropdown = () => {
-    setIsServicesOpen(prev => !prev);
+    setIsServicesOpen((prev) => !prev);
   };
   const navItems = [
     { name: "Home", path: "/", icon: "home" },
     { name: "About", path: "/about", icon: null },
     { name: "Tech", path: "/tech", icon: null },
     { name: "Portfolio", path: "/Portfolio", icon: null },
+    { name: "Blogs", path: "/blogs", icon: null },
     { name: "Other Capabilities", path: "#", icon: null, isDropdown: true },
     { name: "Contact", path: "/contact", icon: null },
   ];
@@ -40,8 +41,8 @@ const Navbar = () => {
   // Function to check if footer is visible
   useEffect(() => {
     const checkFooterVisibility = () => {
-      if (typeof window === 'undefined') return; // Add this check
-      
+      if (typeof window === "undefined") return; // Add this check
+
       const footer = document.querySelector("footer");
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
@@ -51,12 +52,12 @@ const Navbar = () => {
     };
 
     // Initial check - only run on client
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       checkFooterVisibility();
-      
+
       // Add scroll event listener
       window.addEventListener("scroll", checkFooterVisibility);
-      
+
       // Cleanup
       return () => window.removeEventListener("scroll", checkFooterVisibility);
     }
@@ -191,10 +192,21 @@ const Navbar = () => {
     }
   };
 
+  // Function to check if a service item is active
+  const isServiceActive = (path) => {
+    return pathname === path || pathname.toLowerCase() === path.toLowerCase();
+  };
+
+  // Function to check if any service item is active
+  const isAnyServiceActive = () => {
+    return serviceItems.some((item) => isServiceActive(item.path));
+  };
+
   // Updated animation variants
   const navVariants = {
     expanded: {
       width: "100%",
+      maxWidth: "1000px", // Increased from 800px to 1000px to fit all menu items
       transition: {
         type: "spring",
         stiffness: 300,
@@ -226,7 +238,7 @@ const Navbar = () => {
         stiffness: 300,
         damping: 30,
       },
-    }
+    },
   };
 
   const itemVariants = {
@@ -320,25 +332,27 @@ const Navbar = () => {
 
   // Determine which animation variant to use - make safe for SSR
   const getNavVariant = () => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       // Default for server-side rendering
       return "expanded";
     }
-    
-    if (window.innerWidth <= 768) { // Mobile
+
+    if (window.innerWidth <= 768) {
+      // Mobile
       return isMobileMenuOpen ? "mobileExpanded" : "mobileMinimized";
-    } else { // Desktop
+    } else {
+      // Desktop
       return isMinimized ? "minimized" : "expanded";
     }
   };
 
   return (
     <div
-      className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40 mx-auto w-full max-w-xl"
+      className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40 mx-auto w-full max-w-4xl"
       onMouseEnter={() => isMinimized && setIsMinimized(false)}
       onMouseLeave={() => {
-        if (typeof window === 'undefined') return; // Add this check
-        
+        if (typeof window === "undefined") return; // Add this check
+
         const footer = document.querySelector("footer");
         if (footer) {
           const footerRect = footer.getBoundingClientRect();
@@ -406,28 +420,50 @@ const Navbar = () => {
               >
                 Portfolio
               </Link>
+              <Link
+                href="/blog"
+                className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                  pathname === "/blog"
+                    ? "text-red-500 bg-white bg-opacity-90"
+                    : "text-white"
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
+              </Link>
 
               {/* Other Capabilities dropdown with toggle */}
               <div className="border-t border-red-400">
-                <button 
-                  className="px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block text-white w-full text-left flex justify-between items-center"
+                <button
+                  className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block w-full text-left flex justify-between items-center ${
+                    isAnyServiceActive()
+                      ? "text-red-500 bg-white bg-opacity-90"
+                      : "text-white"
+                  }`}
                   onClick={(e) => {
                     e.stopPropagation();
                     toggleServicesDropdown(); // Use the toggle function
                   }}
                 >
                   <span>Other Capabilities</span>
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className={`h-5 w-5 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-5 w-5 transition-transform ${
+                      isServicesOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
-                
+
                 {/* Collapsible service items */}
                 <AnimatePresence>
                   {isServicesOpen && (
@@ -443,7 +479,7 @@ const Navbar = () => {
                           key={serviceIndex}
                           href={service.path}
                           className={`px-10 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
-                            pathname === service.path
+                            isServiceActive(service.path)
                               ? "text-red-500 bg-white bg-opacity-90"
                               : "text-white"
                           }`}
@@ -490,6 +526,8 @@ const Navbar = () => {
               animate="visible"
               exit="hidden"
               variants={dropdownVariants}
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
             >
               <div className="flex flex-col">
                 {serviceItems.map((service, serviceIndex) => (
@@ -502,7 +540,7 @@ const Navbar = () => {
                     <Link
                       href={service.path}
                       className={`px-10 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
-                        pathname === service.path
+                        isServiceActive(service.path)
                           ? "text-red-500 bg-white bg-opacity-90"
                           : "text-white"
                       }`}
@@ -515,88 +553,6 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* REMOVE THIS ENTIRE DUPLICATE MOBILE MENU SECTION */}
-        {/* 
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              ref={mobileMenuRef}
-              className="absolute bottom-20 left-0 w-full bg-red-500 rounded-xl shadow-lg overflow-hidden md:hidden"
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={mobileMenuVariants}
-            >
-              <div className="flex flex-col">
-                <Link
-                  href="/"
-                  className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
-                    pathname === "/"
-                      ? "text-red-500 bg-white bg-opacity-90"
-                      : "text-white"
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/about"
-                  className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
-                    pathname === "/about"
-                      ? "text-red-500 bg-white bg-opacity-90"
-                      : "text-white"
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About
-                </Link>
-                <Link
-                  href="/Law"
-                  className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
-                    pathname === "/Law"
-                      ? "text-red-500 bg-white bg-opacity-90"
-                      : "text-white"
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Law
-                </Link>
-
-                <div className="px-6 py-4 text-white font-medium border-t border-red-400">
-                  Other Capabilities:
-                </div>
-                {serviceItems.map((service, serviceIndex) => (
-                  <Link
-                    key={serviceIndex}
-                    href={service.path}
-                    className={`px-10 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
-                      pathname === service.path
-                        ? "text-red-500 bg-white bg-opacity-90"
-                        : "text-white"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {service.name}
-                  </Link>
-                ))}
-
-                <Link
-                  href="/contact"
-                  className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
-                    pathname === "/contact"
-                      ? "text-red-500 bg-white bg-opacity-90"
-                      : "text-white"
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        */}
 
         <motion.nav
           className={`bg-red-500 shadow-lg rounded-3xl overflow-hidden ${
@@ -699,41 +655,44 @@ const Navbar = () => {
                         : "text-white hover:bg-red-600"
                     }`}
                   >
-                    <span>
-                      Compliant <br></br>Campaigns
-                    </span>
+                    <span>Compliant Campaigns</span>
                   </Link>
 
                   <div
                     className="relative"
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
                     onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
                   >
-                    <div
-                      className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 cursor-pointer flex items-center text-sm ${
-                        pathname.includes("/ads") || pathname.includes("/Tech")
+                    <button
+                      className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
+                        isAnyServiceActive()
                           ? "bg-white bg-opacity-90 text-red-500"
+                          : isServicesOpen
+                          ? "bg-red-600 text-white"
                           : "text-white hover:bg-red-600"
                       }`}
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
                     >
-                      <span>Other capabilities</span>
-                      <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-3 w-3 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        animate={{ rotate: isServicesOpen ? 90 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </motion.svg>
-                    </div>
+                      <span className="flex items-center">
+                        Other capabilities
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className={`ml-1 h-4 w-4 transition-transform ${
+                            isServicesOpen ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </span>
+                    </button>
                   </div>
                   <Link
                     href="/Portfolio"
@@ -744,6 +703,17 @@ const Navbar = () => {
                     }`}
                   >
                     <span>Portfolio</span>
+                  </Link>
+
+                  <Link
+                    href="/blog"
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
+                      pathname === "/blog"
+                        ? "bg-white bg-opacity-90 text-red-500"
+                        : "text-white hover:bg-red-600"
+                    }`}
+                  >
+                    <span>Blog</span>
                   </Link>
 
                   <Link

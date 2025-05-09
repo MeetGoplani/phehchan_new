@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import ThreePartText from '@/components/section/common/3parttext';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -74,15 +75,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-            Contact Us
-          </h1>
-          <p className="mt-4 text-xl text-gray-500">
-            We'd love to hear from you. Get in touch with our team.
-          </p>
-        </div>
-
+        <ThreePartText heading="CONTACT US" />
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
           {/* Map Section */}
           <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg md:w-1/2 flex flex-col min-h-[600px]">

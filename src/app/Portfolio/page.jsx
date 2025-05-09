@@ -10,14 +10,12 @@ const FullWidthBanner = dynamic(
 
 import { techSolutions } from "@/lib/constants";
 import React from "react";
+import ThreePartText from "@/components/section/common/3parttext";
 
 const PortfolioPage = () => {
   return (
     <>
-      <FullWidthBanner
-        customTitle=""
-        customSubtitle="Our Portfolio"
-      />
+      <ThreePartText heading="PORTFOLIO" />
       <PortfolioTabs />
     </>
   );

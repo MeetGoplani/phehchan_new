@@ -1197,11 +1197,11 @@ export default function InfiniteMenu({ items = [] }) {
   };
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full md:h-full">
       <canvas
         id="infinite-grid-menu-canvas"
         ref={canvasRef}
-        className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing"
+        className="cursor-grab w-full h-[70vh] md:h-full overflow-hidden relative outline-none active:cursor-grabbing"
       />
       
       {/* Mobile-only instruction text */}

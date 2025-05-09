@@ -8,8 +8,6 @@ const ThreePartText = ({
   subheading, 
   content, 
   rightContent,
-  waitlistLink,
-  surveyLink
 }) => {
   return (
     <section className="">
@@ -53,7 +51,7 @@ const ThreePartText = ({
             </p>
           </motion.div>
           
-          {/* Right Column - Additional Information */}
+          {/* Right Column - Bullet Points */}
           <motion.div 
             className="md:col-span-3"
             initial={{ opacity: 0, x: 20 }}
@@ -62,31 +60,19 @@ const ThreePartText = ({
             viewport={{ once: true }}
           >
             <div className="space-y-6">
-              {waitlistLink && (
-                <div className="flex items-center">
-                  <span className="mr-2">➔</span>
-                  <a 
-                    href={waitlistLink.url} 
-                    className="font-medium hover:underline"
-                  >
-                    {waitlistLink.text}
-                    <p className="text-sm text-gray-500">{waitlistLink.subtext}</p>
-                  </a>
+              {rightContent && rightContent.map((section, index) => (
+                <div key={index} className="mb-4">
+                  <h3 className="font-medium mb-2">{section.title}</h3>
+                  <ul className="space-y-2">
+                    {section.points.map((point, pointIndex) => (
+                      <li key={pointIndex} className="flex items-start">
+                        <span className="mr-2 mt-1">•</span>
+                        <span className="text-sm text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              )}
-              
-              {surveyLink && (
-                <div className="flex items-center">
-                  <span className="mr-2">➔</span>
-                  <a 
-                    href={surveyLink.url} 
-                    className="font-medium hover:underline"
-                  >
-                    {surveyLink.text}
-                    <p className="text-sm text-gray-500">{surveyLink.subtext}</p>
-                  </a>
-                </div>
-              )}
+              ))}
             </div>
           </motion.div>
         </div>

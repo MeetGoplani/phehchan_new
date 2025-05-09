@@ -37,7 +37,7 @@ const HalfImageHalfText = ({
           >
             <div className="px-6 md:px-0 max-w-lg">
               {subtitle && (
-                <p className="text-pink-500 font-medium uppercase tracking-wider mb-4">
+                <p className="text-[#0f304f] font-medium uppercase tracking-wider mb-4">
                   {subtitle}
                 </p>
               )}
@@ -73,13 +73,13 @@ const HalfImageHalfText = ({
                 </div>
               )}
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 mb-8 md:mb-0">
                 {primaryButtonText && (
                   <Link
                     href={primaryButtonLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-pink-100 text-pink-600 rounded-full font-medium hover:bg-pink-200 transition-colors"
+                    className="px-6 py-3 bg-[#0f304f] text-white rounded-full font-medium hover:bg-blue-900 transition-colors"
                   >
                     {primaryButtonText}
                   </Link>

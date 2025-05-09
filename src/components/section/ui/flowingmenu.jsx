@@ -29,7 +29,7 @@ export default function flowingmenu() {
       <div className="h-[5vh]" /> {/* Reduced from 100vh to 70vh */}
       <div ref={container}>
         <Slide
-          src="/imgphehchan.png"
+          src="/img5marketing.jpg"
           direction={"left"}
           left={"-40%"}
           progress={scrollYProgress}

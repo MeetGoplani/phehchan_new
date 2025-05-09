@@ -29,9 +29,8 @@ export default function flowingmenu3() {
       <div className="h-[5vh]" />
       <div ref={container}>
         <Slide
-          src="/imgphehchan.png"
+          src="/img2tech.jpg"
           direction={"right"}
-          
           left={"0%"}
           progress={scrollYProgress}
         />

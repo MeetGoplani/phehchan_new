@@ -33,30 +33,27 @@ const OtherCapabilities = () => {
                 
                 <div className="space-y-3">
                   {/* Tech Services */}
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
-                    <span className="text-gray-700">Software Licensing Agreements</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
+                    <span className="text-gray-700">web development</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
-                    <span className="text-gray-700">Privacy Policies & Terms of Service</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
+                    <span className="text-gray-700">App development</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
-                    <span className="text-gray-700">Intellectual Property Protection</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
+                    <span className="text-gray-700">CMS solutions</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
-                    <span className="text-gray-700">Data Protection Compliance</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
+                    <span className="text-gray-700">Project 52</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
-                    <span className="text-gray-700">SaaS Agreements</span>
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -76,28 +73,28 @@ const OtherCapabilities = () => {
                 
                 <div className="space-y-3">
                   {/* Ads Services */}
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
                     <span className="text-gray-700">Ad Content Compliance Review</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
                     <span className="text-gray-700">Social Media Advertising Guidelines</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
                     <span className="text-gray-700">Promotional Disclosures</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
                     <span className="text-gray-700">Influencer Marketing Contracts</span>
                   </div>
                   
-                  <div className="flex items-start cursor-pointer hover:text-pink-500 transition-colors">
-                    <span className="text-pink-500 mr-2">•</span>
+                  <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
+                    <span className="text-[#0f304f] mr-2">•</span>
                     <span className="text-gray-700">Contest & Sweepstakes Rules</span>
                   </div>
                 </div>

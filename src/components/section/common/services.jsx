@@ -15,7 +15,7 @@ const processCardVariants = cva("flex border backdrop-blur-lg", {
   variants: {
     variant: {
       indigo:
-        "flex border text-slate-50 border-slate-700 backdrop-blur-lg bg-gradient-to-br from-[rgba(15,23,42,0.7)_40%] to-[#3730a3_120%]",
+        "flex border text-white border-white backdrop-blur-lg bg-black",
       light: "shadow",
     },
     size: {
@@ -128,8 +128,8 @@ export const ProcessCard = ({
 }
 ProcessCard.displayName = "ProcessCard"
 
-// Process phases data
-const PROCESS_PHASES = [
+// Default process phases data
+const DEFAULT_PROCESS_PHASES = [
   {
     id: "process-1",
     title: "Research and Analysis",
@@ -157,46 +157,68 @@ const PROCESS_PHASES = [
 ]
 
 // Main component to export
-const Services = () => {
+const Services = ({ 
+  processPhases = DEFAULT_PROCESS_PHASES,
+  title = "Planning your project",
+  titleSecondLine = "development journey",
+  description = "We blend creative design with cutting‑edge frontend development to build stunning, high‑performance websites that elevate your brand and captivate your audience."
+}) => {
   return (
     <section id="services">
       <ContainerScroll
-        className="container px-6 py-12 h-[300vh]"
+        className="container px-6 py-12 h-[100vh]"
         style={{
-          background:
-            "radial-gradient(30% 80% at 0% 70%, #4338ca 0%, #3730a3 22.92%, #312e81 42.71%, #0f172a 88.54%)",
+          background: "white",
         }}
       >
-        <div className="mb-8 space-y-4">
-          <h2 className="bg-gradient-to-r from-indigo-200/60 via-indigo-50 to-indigo-200/60 bg-clip-text text-4xl font-semibold tracking-tight text-transparent md:text-5xl">
-            Planning your project
-            <br /> development journey
-          </h2>
-          <p className="max-w-[52ch] text-sm text-slate-300">
-            We blend creative design with cutting‑edge frontend development to
-            build stunning, high‑performance websites that elevate your brand and
-            captivate your audience.
-          </p>
+        {/* Make the header sticky at the top */}
+        <div className="sticky top-0 pt-4 pb-8 bg-white z-10">
+          <div className="space-y-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-black md:text-5xl">
+              {title}
+              <br /> {titleSecondLine}
+            </h2>
+            <p className="max-w-[52ch] text-sm text-black">
+              {Array.isArray(description) 
+                ? description.map((desc, i) => (
+                    <React.Fragment key={i}>
+                      {desc}
+                      {i < description.length - 1 && <br />}
+                    </React.Fragment>
+                  ))
+                : description}
+            </p>
+          </div>
         </div>
 
-        <ContainerSticky className="top-16 flex flex-nowrap">
-          {PROCESS_PHASES.map((phase, index) => (
+        {/* Position the process cards directly under the header with more space */}
+        <ContainerSticky className="top-[220px] flex flex-nowrap">
+          {processPhases.map((phase, index) => (
             <ProcessCard
               key={phase.id}
-              itemsLength={PROCESS_PHASES.length}
+              itemsLength={processPhases.length}
               index={index}
               className="min-w-[70%] max-w-[70%]"
             >
-              <ProcessCardTitle className="border-r border-slate-700">
-                <div className="rounded-full size-8 bg-indigo-700 text-sm flex justify-center items-center">
+              <ProcessCardTitle className="border border-white">
+                <div className="rounded-full size-8 bg-white text-black text-sm flex justify-center items-center">
                   {String(index + 1).padStart(2, "0")}
                 </div>
               </ProcessCardTitle>
               <ProcessCardBody className="flex flex-col gap-10">
-                <h3 className="text-3xl font-semibold leading-tight">
+                <h3 className="text-3xl font-semibold leading-tight text-white">
                   {phase.title}
                 </h3>
-                <p className="opacity-80">{phase.description}</p>
+                <p className="opacity-90 text-white">
+                  {Array.isArray(phase.description) 
+                    ? phase.description.map((desc, i) => (
+                        <React.Fragment key={i}>
+                          {desc}
+                          {i < phase.description.length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                    : phase.description}
+                </p>
               </ProcessCardBody>
             </ProcessCard>
           ))}

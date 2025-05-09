@@ -73,7 +73,7 @@ const FAQWithImage = ({
         {/* Right side - FAQ content (70%) */}
         <div
           ref={contentRef}
-          className="w-full md:w-[70%] bg-gray-50 p-8 md:p-12"
+          className="w-full md:w-[70%] bg-white p-8 md:p-12"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
             {title}

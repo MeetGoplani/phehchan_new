@@ -1,4 +1,5 @@
 "use client"
+import FullWidthText from '@/components/section/common/fullwidthtext';
 import Services from '@/components/section/common/services';
 import TextCarousel from '@/components/section/common/textcarousel';
 import dynamic from 'next/dynamic';
@@ -8,124 +9,113 @@ import React from "react";
 const ThreePartText = dynamic(() => import("@/components/section/common/3parttext"), { ssr: false });
 const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwidthimg"), { ssr: false });
 
+const rightContentData = [
+  {
+    title: "Brand Audit & Market Positioning",
+    points: [
+      "Internal brand equity assessment",
+      "Competitive landscape analysis (SWOT, category mapping)",
+      "Brand DNA document: purpose, values, differentiators",
+    ],
+  },
+  {
+    title: "Target Audience Development",
+    points: [
+      "Customer persona creation (demographic, psychographic, behavioral)",
+      "Jobs-to-be-Done (JTBD) framework for value articulation",
+    ],
+  },
+  {
+    title: "Go-To-Market (GTM) Strategy",
+    points: [
+      "Product/service launch plans (pre-launch, launch, post-launch)",
+      "Channel prioritization (owned, earned, paid, partnership)",
+      "Pricing & packaging consultation",
+    ],
+  },
+  {
+    title: "Strategic Planning",
+    points: [
+      "12-month marketing blueprint",
+      "Quarterly campaign and goal planning (OKRs/KPIs)`",
+      "Marketing + Sales alignment workshops",
+    ],
+  },
+];
+
+const rightContentData2 = [
+  {
+    title: "Brand Identity & Visual Systems",
+    points: [
+      "Logo and design system audits or development",
+      "Typography, iconography, and asset library creation",
+      "Brand voice & tone playbook",
+    ],
+  },
+  {
+    title: "Content Architecture & Creative Strategy",
+    points: [
+      "Master content pillars aligned with brand positioning",
+      "Annual editorial calendar",
+      "Messaging matrices for each persona",
+    ],
+  },
+  {
+    title: "Campaign Development & Oversight",
+    points: [
+      "Conceptualization of seasonal campaigns (festivals, launches, CSR)",
+      "Copywriting and scripting for ads, promos, AVs",
+      "Art direction for shoots, video, podcast, and animations",
+    ],
+  },
+  {
+    title: "Production Leadership",
+    points: [
+      "Vendor/agency briefing & coordination",
+      "Quality control of final creative output",
+
+    ],
+  },
+];
+
+
 const AdsPage = () => {
   return (
     <>
-      <FullWidthBanner customTitle="" customSubtitle="Marketing" />
-      {/* <div className="lg:pb-8 pb-6 gap-4 flex flex-col lg:max-w-3xl mx-auto lg:text-center justify-center items-center "></div>
-      <FullWidthText
-        companyName="Our Expertise"
-        companyDescription=""
-        additionalText="At Phehchan, we bring over 30 years of experience and a deep understanding of advertising regulations in India We guide our clients to address advertising complaints and ASCI complaint redressalWe are up-to-date with the latest industry trends, ensuring that our clients receive the most relevant and effective strategies."
-        backgroundColor="#ffffff"
-        textColor="#000000"
-      />
-      <div className="grid grid-cols-1 lg:max-w-3xl mx-auto pb-6 gap-6 ">
-        {techSolutions.map((item, index) => (
-          <PhotoServiceCard
-            key={index}
-            service={item}
-            isOdd={index % 2 !== 0}
-          />
-        ))}
-      </div> */}
-      <ThreePartText
-        heading="OUR EXPERTISE"
-        subheading="Strategic Marketing Leadership"
-        content="Brand Audit & Market Positioning"
-        rightContent=""
-        waitlistLink={{
-          text: "Internal brand equity assessment ",
-          subtext: "",
-          url: "#waitlist",
-        }}
-        surveyLink={{
-          text: "Competitive landscape analysis (SWOT, category mapping) Brand DNA document: purpose, values, differentiators",
-          subtext: "",
-          url: "#survey",
-        }}
-      />
+      <ThreePartText heading="MARKETING EXPERTISE" />
+
       <ThreePartText
         heading=""
-        subheading="Offline Marketing Activities"
-        content="Connect with your customers through impactful direct marketing, promotional events, and print advertising that complement your digital strategies."
-        rightContent=""
-        waitlistLink={{
-          text: "Join the Waitlist",
-          subtext: "Reserve your early access.",
-          url: "#waitlist",
-        }}
-        surveyLink={{
-          text: "Take the Survey",
-          subtext: "Contribute to the vision.",
-          url: "#survey",
-        }}
+        subheading=" Strategic Marketing Leadership"
+        content="Build and lead a scalable, data-driven marketing function tailored to the client’s growth stage.
+
+Most growing companies struggle to transition from founder-led or reactive marketing to a structured, strategic marketing function. This service is designed to bridge that gap. Whether you're an early-stage brand trying to find market fit or an established business aiming to scale profitably, we act as your extended leadership arm—helping you build a marketing engine that is proactive, measurable, and adaptable.
+
+Our goal is not just to run campaigns or design decks. It's to architect a long-term marketing system grounded in data, insight, and clear business objectives. We lay the strategic foundation (positioning, audience understanding, GTM planning), embed performance rhythms (OKRs, blueprints, campaign cycles), and align cross-functional teams (sales, product, and leadership) so marketing becomes a true growth partner—not just a cost center.
+
+In short, we build the thinking, systems, and processes that your brand can scale with—not just survive with.
+
+2.⁠ ⁠Creative Direction & Brand Communication
+
+Goal: Elevate brand storytelling across all media formats and customer touchpoints.
+
+In a crowded market, people don’t just buy products—they buy brands they feel connected to. Our creative direction offering is built to make your brand visually magnetic, emotionally resonant, and strategically consistent—across every single touchpoint.
+
+The goal here isn’t just to make things “look good” or “go viral.” It’s to craft a coherent, compelling brand experience—from the first scroll on social media to the last touch in the customer journey. We shape how your brand sounds, looks, and feels in the world—whether it’s a campaign video, a podcast intro, your packaging design, or your Instagram grid.
+
+We do this by creating and overseeing the full content ecosystem: identity systems, content strategy, messaging frameworks, campaign ideas, and production quality. This ensures your storytelling isn't siloed or superficial—it’s structured, strategic, and scalable.
+
+When brand expression is handled with this level of intent, it doesn’t just build visibility—it builds trust, loyalty, and cultural relevance.
+"
+        rightContent={rightContentData}
       />
+
       <ThreePartText
         heading=""
-        subheading="Ideation & Execution"
-        content="Turn creative ideas into successful campaigns with a seamless execution process that ensures consistency and quality across all channels."
-        rightContent=""
-        // waitlistLink={{
-        //   text: "Join the Waitlist",
-        //   subtext: "Reserve your early access.",
-        //   url: "#waitlist",
-        // }}
-        // surveyLink={{
-        //   text: "Take the Survey",
-        //   subtext: "Contribute to the vision.",
-        //   url: "#survey",
-        // }}
+        subheading="Creative Direction & Brand Communication"
+        content="Elevate brand storytelling across all media formats and customer touchpoints"
+        rightContent={rightContentData2}
       />
-      <ThreePartText
-        heading=""
-        subheading="SEO"
-        content="Improve your website's visibility on search engines through optimized content and proven SEO techniques that drive organic growth."
-        rightContent=""
-        // waitlistLink={{
-        //   text: "Join the Waitlist",
-        //   subtext: "Reserve your early access.",
-        //   url: "#waitlist",
-        // }}
-        // surveyLink={{
-        //   text: "Take the Survey",
-        //   subtext: "Contribute to the vision.",
-        //   url: "#survey",
-        // }}
-      />
-      <ThreePartText
-        heading=""
-        subheading="Media Buying"
-        content="Navigate the complexities of media planning and buying with expertise that ensures your ads are seen by the right people at the right time."
-        rightContent=""
-        // waitlistLink={{
-        //   text: "Join the Waitlist",
-        //   subtext: "Reserve your early access.",
-        //   url: "#waitlist",
-        // }}
-        // surveyLink={{
-        //   text: "Take the Survey",
-        //   subtext: "Contribute to the vision.",
-        //   url: "#survey",
-        // }}
-      />
-      <ThreePartText
-        heading=""
-        subheading="Branding"
-        content="Build a distinctive brand identity that captures your business's essence and differentiates you in the marketplace."
-        rightContent=""
-        // waitlistLink={{
-        //   text: "Join the Waitlist",
-        //   subtext: "Reserve your early access.",
-        //   url: "#waitlist",
-        // }}
-        // surveyLink={{
-        //   text: "Take the Survey",
-        //   subtext: "Contribute to the vision.",
-        //   url: "#survey",
-        // }}
-      />
-      <Services />
     </>
   );
 };

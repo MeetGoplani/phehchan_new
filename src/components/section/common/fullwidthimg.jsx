@@ -182,7 +182,7 @@ const FullWidthBanner = ({
         {buttonText && (
           <a
             href={buttonLink}
-            className="inline-flex items-center px-6 py-3 mt-15 bg-white text-pink-600 rounded-full font-medium hover:bg-opacity-90 transition-all"
+            className="inline-flex items-center px-6 py-3 mt-15 bg-white text-[#0f304f] rounded-full font-medium hover:bg-opacity-90 transition-all"
             target="_blank"
             rel="noopener noreferrer"
           >
