@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import client from "@/lib/apolloClient";
+import Link from "next/link";
 
 const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: ID!) {
@@ -29,17 +30,52 @@ export default async function BlogPostPage({ params }) {
   if (!post) return <p>Post not found</p>;
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="mb-6">
+        <Link
+          href="/blog"
+          className="inline-flex items-center text-[#0f304f] hover:text-blue-800 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Back to Blogs
+        </Link>
+      </div>
+
       {post.featuredImage?.node?.sourceUrl && (
         <img
           src={post.featuredImage.node.sourceUrl}
           alt={post.featuredImage.node.altText || "Post image"}
-          style={{ width: "100%", borderRadius: "8px" }}
+          className="w-full h-auto rounded-lg shadow-md mb-8 object-cover max-h-[500px]"
         />
       )}
-      <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-      <small>{new Date(post.date).toLocaleDateString()}</small>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <h1
+        className="text-3xl md:text-5xl font-bold mb-6 text-gray-800 text-center"
+        dangerouslySetInnerHTML={{ __html: post.title }}
+      />
+      <div className="mb-8 text-gray-500 text-center">
+        {new Date(post.date).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </div>
+      <div
+        className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-a:text-blue-600 prose-img:rounded-md prose-img:shadow-md text-left"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
     </div>
-  );
+  );  
 }
