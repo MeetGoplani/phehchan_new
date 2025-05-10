@@ -6,7 +6,7 @@ import Link from "next/link";
 const HalfImageHalfText = ({
   subtitle = "A LAWYER",
   title = "Meet Apurva",
-  name = "Brands & communicating expert",
+  name = "Brands & communication expert",
   description = "With over twelve years in the creative industry as a professional photographer, Apurva Mehra has cultivated a sharp eye for aesthetics, storytelling, and innovation. His journey later expanded into the world of law, where he graduated with an LLB in Business Administration from Auro University. This unique combination of creative vision and strategic, detail-driven thinking sets him apart as a leader.Fueling his passion for branding and marketing, Apurva further honed his skills at the Advertising Standards Council of India (ASCI), where he deepened his understanding of brand communication ethics and standards.Apurva merges creativity, legal expertise, and strategic brand building to craft identities that are authentic, impactful, and enduring. His leadership is rooted in a belief that real brands aren’t built overnight; they are shaped by passion, clarity, and resilience over time.",
   imageUrl = "/imgphehchan.png",
   imageAlt = "Profile image",

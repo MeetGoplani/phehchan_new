@@ -17,9 +17,9 @@ export default function Home() {
     <>
       <FullWidthBanner customTitle='WHERE STRATEGY MEETS STORYTELLING' customSubtitle='— AND COMPLIANCE BUILDS TRUST.'/>
       <FullWidthText
-        companyName="PHEHCHAN"
-        companyDescription="is a legal services platform helping brands make their content legally strong."
-        additionalText="We provide comprehensive legal solutions tailored to your specific needs."
+        companyName="Compliance "
+        companyDescription="Isn’t Optional—It’s Your Edge."
+        additionalText="We help your brand shine for all the right reasons. At PBS, we make sure your campaigns play by the rules, while our Fractional CMO model gives you the strategy and support to grow with confidence."
         backgroundColor="#ffffff"
         textColor="#000000" 
       />

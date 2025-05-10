@@ -12,24 +12,42 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const servicesRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const mobileButtonRef = useRef(null);
   const pathname = usePathname();
 
-  // Add this toggle function
-  const toggleMobileMenu = () => {
+  // Fixed toggle function for mobile menu
+  const toggleMobileMenu = (e) => {
+    // Stop propagation to prevent immediate closing
+    if (e) {
+      e.stopPropagation();
+    }
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  // Add this toggle function for services dropdown
-  const toggleServicesDropdown = () => {
+  // Add toggle functions for services dropdowns
+  const toggleServicesDropdown = (e) => {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     setIsServicesOpen((prev) => !prev);
+  };
+
+  // Separate toggle for mobile services
+  const toggleMobileServicesDropdown = (e) => {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    setIsMobileServicesOpen((prev) => !prev);
   };
   const navItems = [
     { name: "Home", path: "/", icon: "home" },
     { name: "About", path: "/about", icon: null },
-    { name: "Tech", path: "/tech", icon: null },
-    { name: "Portfolio", path: "/Portfolio", icon: null },
-    { name: "Blogs", path: "/blogs", icon: null },
+    { name: "Law", path: "/Law", icon: null },
     { name: "Other Capabilities", path: "#", icon: null, isDropdown: true },
+    { name: "Portfolio", path: "/Portfolio", icon: null },
+    { name: "Blog", path: "/blog", icon: null },
     { name: "Contact", path: "/contact", icon: null },
   ];
 
@@ -313,6 +331,14 @@ const Navbar = () => {
   // Handle clicks outside the services menu to close it
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Ignore clicks on the mobile button to prevent double toggle
+      if (
+        mobileButtonRef.current &&
+        mobileButtonRef.current.contains(event.target)
+      ) {
+        return;
+      }
+
       if (servicesRef.current && !servicesRef.current.contains(event.target)) {
         setIsServicesOpen(false);
       }
@@ -321,12 +347,25 @@ const Navbar = () => {
         !mobileMenuRef.current.contains(event.target)
       ) {
         setIsMobileMenuOpen(false);
+        setIsMobileServicesOpen(false);
+      }
+    };
+
+    // Add separate listener for Escape key to close dropdowns
+    const handleEscKey = (event) => {
+      if (event.key === "Escape") {
+        setIsServicesOpen(false);
+        setIsMobileServicesOpen(false);
+        setIsMobileMenuOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscKey);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscKey);
     };
   }, []);
 
@@ -373,9 +412,8 @@ const Navbar = () => {
             animate="visible"
             exit="hidden"
             variants={mobileMenuVariants}
-            onClick={() => setIsMobileMenuOpen(false)}
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col" onClick={(e) => e.stopPropagation()}>
               <Link
                 href="/"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
@@ -383,7 +421,10 @@ const Navbar = () => {
                     ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsMobileMenuOpen(false);
+                }}
               >
                 Home
               </Link>
@@ -409,6 +450,72 @@ const Navbar = () => {
               >
                 Law
               </Link>
+
+              {/* Other Capabilities dropdown with toggle */}
+              <div className="border-t border-[#0f304f]/40">
+                <button
+                  className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block w-full text-left flex justify-between items-center ${
+                    isAnyServiceActive()
+                      ? "text-[#0f304f] bg-white bg-opacity-90"
+                      : "text-white"
+                  }`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    toggleMobileServicesDropdown(e);
+                  }}
+                >
+                  <span>Other Capabilities</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-5 w-5 transition-transform ${
+                      isMobileServicesOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Collapsible service items */}
+                <AnimatePresence>
+                  {isMobileServicesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden bg-[#0f304f]"
+                    >
+                      {serviceItems.map((service, serviceIndex) => (
+                        <Link
+                          key={serviceIndex}
+                          href={service.path}
+                          className={`px-10 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
+                            isServiceActive(service.path)
+                              ? "text-[#0f304f] bg-white bg-opacity-90"
+                              : "text-white"
+                          }`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsMobileMenuOpen(false);
+                            setIsMobileServicesOpen(false);
+                          }}
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
               <Link
                 href="/Portfolio"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
@@ -431,70 +538,6 @@ const Navbar = () => {
               >
                 Blog
               </Link>
-
-              {/* Other Capabilities dropdown with toggle */}
-              <div className="border-t border-[#0f304f]/40">
-                <button
-                  className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block w-full text-left flex justify-between items-center ${
-                    isAnyServiceActive()
-                      ? "text-[#0f304f] bg-white bg-opacity-90"
-                      : "text-white"
-                  }`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleServicesDropdown(); // Use the toggle function
-                  }}
-                >
-                  <span>Other Capabilities</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`h-5 w-5 transition-transform ${
-                      isServicesOpen ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {/* Collapsible service items */}
-                <AnimatePresence>
-                  {isServicesOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden bg-[#0f304f]"
-                    >
-                      {serviceItems.map((service, serviceIndex) => (
-                        <Link
-                          key={serviceIndex}
-                          href={service.path}
-                          className={`px-10 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
-                            isServiceActive(service.path)
-                              ? "text-[#0f304f] bg-white bg-opacity-90"
-                              : "text-white"
-                          }`}
-                          onClick={() => {
-                            setIsMobileMenuOpen(false);
-                            setIsServicesOpen(false);
-                          }}
-                        >
-                          {service.name}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
 
               <Link
                 href="/contact"
@@ -544,6 +587,7 @@ const Navbar = () => {
                           ? "text-[#0f304f] bg-white bg-opacity-90"
                           : "text-white"
                       }`}
+                      onClick={() => setIsServicesOpen(false)}
                     >
                       {service.name}
                     </Link>
@@ -572,8 +616,9 @@ const Navbar = () => {
             {/* Mobile Hamburger Button */}
             <div className="md:hidden flex items-center justify-center text-white p-1">
               <button
+                ref={mobileButtonRef}
                 className="bg-white bg-opacity-90 text-[#0f304f] rounded-full flex items-center justify-center w-full h-full"
-                onClick={toggleMobileMenu} // Use the toggle function
+                onClick={(e) => toggleMobileMenu(e)} // Pass the event
                 aria-label="Toggle menu"
                 style={{ width: "48px", height: "48px", padding: "0" }}
               >
@@ -589,7 +634,6 @@ const Navbar = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      style={{ pointerEvents: "none" }}
                     >
                       <path
                         strokeLinecap="round"
@@ -657,31 +701,12 @@ const Navbar = () => {
                   >
                     Law
                   </Link>
-                  <Link
-                    href="/Portfolio"
-                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
-                      pathname === "/Portfolio"
-                        ? "bg-white bg-opacity-90 text-[#0f304f]"
-                        : "text-white"
-                    }`}
-                  >
-                    Portfolio
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
-                      pathname === "/blog"
-                        ? "bg-white bg-opacity-90 text-[#0f304f]"
-                        : "text-white"
-                    }`}
-                  >
-                    Blog
-                  </Link>
 
                   {/* Services Dropdown */}
                   <div
                     className="relative"
                     onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
                   >
                     <button
                       className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 flex items-center ${
@@ -689,7 +714,7 @@ const Navbar = () => {
                           ? "bg-white bg-opacity-90 text-[#0f304f]"
                           : "text-white"
                       }`}
-                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      onClick={(e) => toggleServicesDropdown(e)}
                     >
                       Other Capabilities
                       <svg
@@ -710,6 +735,26 @@ const Navbar = () => {
                       </svg>
                     </button>
                   </div>
+                  <Link
+                    href="/Portfolio"
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
+                      pathname === "/Portfolio"
+                        ? "bg-white bg-opacity-90 text-[#0f304f]"
+                        : "text-white"
+                    }`}
+                  >
+                    Portfolio
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
+                      pathname === "/blog"
+                        ? "bg-white bg-opacity-90 text-[#0f304f]"
+                        : "text-white"
+                    }`}
+                  >
+                    Blog
+                  </Link>
 
                   <Link
                     href="/contact"
