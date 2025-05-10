@@ -15,14 +15,14 @@ const FullWidthText = ({
     <div className={`w-full ${padding}`} style={{ backgroundColor }}>
       <div className="container mx-auto px-6 md:px-8">
         <div className={`max-w-4xl mx-auto text-${textAlign}`}>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 whitespace-nowrap">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 md:whitespace-nowrap">
             <span className="font-black">{companyName}</span>{" "}
             {companyDescription}
           </h2>
 
           {additionalText && (
             <p
-              className="text-4xl md:text-xl mt-6"
+              className="text-lg md:text-xl mt-6"
               style={{ color: textColor }}
             >
               {additionalText}

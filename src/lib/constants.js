@@ -118,7 +118,7 @@ export const partnerLogos = [
     },
     {
     name: "tgt",
-    image: "/IMG_4412.png",
+    image: "/tgtlogocropped.jpeg",
     height: "7rem",
     },
   

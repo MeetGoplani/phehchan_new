@@ -448,7 +448,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Law
+                Compliant campaign
               </Link>
 
               {/* Other Capabilities dropdown with toggle */}
@@ -699,7 +699,7 @@ const Navbar = () => {
                         : "text-white"
                     }`}
                   >
-                    Law
+                    Compliant campaign
                   </Link>
 
                   {/* Services Dropdown */}

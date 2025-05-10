@@ -45,7 +45,7 @@ const Footer = () => {
               <p className="text-sm mb-1">Phehchan Brand Solutions</p>
               <p className="text-sm mb-1">511, 5th Floor, SNS Platina,</p>
               <p className="text-sm mb-1">
-                nr. Someshwara Enclave, Someshwara Enclave,
+                nr. Someshwara Enclave,
               </p>
               <p className="text-sm mb-1">Vesu, Surat,</p>
               <p className="text-sm">Gujarat 395007</p>

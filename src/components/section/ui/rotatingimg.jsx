@@ -5,7 +5,11 @@ import { motion } from 'framer-motion';
 import { partnerLogos } from '@/lib/constants';
 
 const LogoSlider = () => {
-  const sliderRef = useRef(null);
+  // Calculate total width needed for a single set of logos
+  const singleSetWidth = partnerLogos.reduce((total, logo) => {
+    // Each logo has its width plus the space-x-12 (3rem = 48px)
+    return total + (parseInt(logo.width) || 128) + 48;
+  }, 0);
   
   return (
     <div className="w-full bg-white py-8 overflow-hidden">
@@ -15,12 +19,10 @@ const LogoSlider = () => {
       
       <div className="relative w-full overflow-hidden">
         <div className="flex items-center">
-          {/* First set of logos */}
           <motion.div
             className="flex items-center space-x-12 px-4"
-            animate={{
-              x: [0, -100 * partnerLogos.length],
-            }}
+            initial={{ x: 0 }}
+            animate={{ x: -singleSetWidth }}
             transition={{
               x: {
                 repeat: Infinity,
@@ -30,10 +32,11 @@ const LogoSlider = () => {
               },
             }}
           >
+            {/* First set of logos */}
             {partnerLogos.map((logo, index) => (
               <div key={`logo-1-${index}`} className="flex-shrink-0" style={{
-                height: logo.height || '3rem', // Default to 3rem (equivalent to h-12) if not specified
-                width: logo.width || '8rem'    // Default to 8rem (equivalent to w-32) if not specified
+                height: logo.height || '3rem',
+                width: logo.width || '8rem'
               }}>
                 <img
                   src={logo.image}
@@ -46,16 +49,26 @@ const LogoSlider = () => {
             {/* Duplicate logos for seamless loop */}
             {partnerLogos.map((logo, index) => (
               <div key={`logo-2-${index}`} className="flex-shrink-0" style={{
-                height: logo.height || '3rem', // Fixed: Use 3rem instead of 13rem to match the first set
-                width: logo.width || '8rem'    // Default to 8rem (equivalent to w-32) if not specified
+                height: logo.height || '3rem',
+                width: logo.width || '8rem'
               }}>
                 <img
                   src={logo.image}
                   alt={logo.name}
-                  style={{
-                    height: logo.height || '3rem', // Fixed: Use 3rem instead of 13rem to match the first set
-                    width: logo.width || '8rem'    // Default to 8rem (equivalent to w-32) if not specified
-                  }}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            ))}
+            
+            {/* Add a third set to ensure smooth looping */}
+            {partnerLogos.map((logo, index) => (
+              <div key={`logo-3-${index}`} className="flex-shrink-0" style={{
+                height: logo.height || '3rem',
+                width: logo.width || '8rem'
+              }}>
+                <img
+                  src={logo.image}
+                  alt={logo.name}
                   className="h-full w-full object-contain"
                 />
               </div>

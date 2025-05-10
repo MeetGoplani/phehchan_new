@@ -54,17 +54,11 @@ export default async function BlogPostPage({ params }) {
         </Link>
       </div>
 
-      {post.featuredImage?.node?.sourceUrl && (
-        <img
-          src={post.featuredImage.node.sourceUrl}
-          alt={post.featuredImage.node.altText || "Post image"}
-          className="w-full h-auto rounded-lg shadow-md mb-8 object-cover max-h-[500px]"
-        />
-      )}
       <h1
         className="text-3xl md:text-5xl font-bold mb-6 text-gray-800 text-center"
         dangerouslySetInnerHTML={{ __html: post.title }}
       />
+
       <div className="mb-8 text-gray-500 text-center">
         {new Date(post.date).toLocaleDateString("en-US", {
           year: "numeric",
@@ -72,8 +66,17 @@ export default async function BlogPostPage({ params }) {
           day: "numeric",
         })}
       </div>
+      {post.featuredImage?.node?.sourceUrl && (
+        <div className="flex justify-center mb-8">
+          <img
+            src={post.featuredImage.node.sourceUrl}
+            alt={post.featuredImage.node.altText || "Post image"}
+            className="w-auto h-[400px] rounded-lg shadow-md object-contain max-h-[500px]"
+          />
+        </div>
+      )}
       <div
-        className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-a:text-blue-600 prose-img:rounded-md prose-img:shadow-md text-left"
+        className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-a:text-blue-600 prose-img:rounded-md prose-img:shadow-md prose-img:mx-auto text-left"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </div>
