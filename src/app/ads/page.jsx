@@ -82,10 +82,9 @@ const rightContentData2 = [
 const AdsPage = () => {
   return (
     <>
-      <ThreePartText heading="MARKETING EXPERTISE" />
-
+    
       <ThreePartText
-        heading=""
+        heading="MARKETING EXPERTISE"
         subheading=" Strategic Marketing Leadership"
         content="Build and lead a scalable, data-driven marketing function tailored to the client’s growth stage.
 

@@ -368,7 +368,7 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <motion.div
             ref={mobileMenuRef}
-            className="absolute bottom-[72px] left-0 w-full bg-red-500 rounded-xl shadow-lg overflow-hidden md:hidden"
+            className="absolute bottom-[72px] left-0 w-full bg-[#0f304f] rounded-xl shadow-lg overflow-hidden md:hidden"
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -378,9 +378,9 @@ const Navbar = () => {
             <div className="flex flex-col">
               <Link
                 href="/"
-                className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/"
-                    ? "text-red-500 bg-white bg-opacity-90"
+                    ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -389,9 +389,9 @@ const Navbar = () => {
               </Link>
               <Link
                 href="/about"
-                className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/about"
-                    ? "text-red-500 bg-white bg-opacity-90"
+                    ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -400,9 +400,9 @@ const Navbar = () => {
               </Link>
               <Link
                 href="/Law"
-                className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/Law"
-                    ? "text-red-500 bg-white bg-opacity-90"
+                    ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -411,9 +411,9 @@ const Navbar = () => {
               </Link>
               <Link
                 href="/Portfolio"
-                className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/Portfolio"
-                    ? "text-red-500 bg-white bg-opacity-90"
+                    ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -422,9 +422,9 @@ const Navbar = () => {
               </Link>
               <Link
                 href="/blog"
-                className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/blog"
-                    ? "text-red-500 bg-white bg-opacity-90"
+                    ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -433,11 +433,11 @@ const Navbar = () => {
               </Link>
 
               {/* Other Capabilities dropdown with toggle */}
-              <div className="border-t border-red-400">
+              <div className="border-t border-[#0f304f]/40">
                 <button
-                  className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block w-full text-left flex justify-between items-center ${
+                  className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block w-full text-left flex justify-between items-center ${
                     isAnyServiceActive()
-                      ? "text-red-500 bg-white bg-opacity-90"
+                      ? "text-[#0f304f] bg-white bg-opacity-90"
                       : "text-white"
                   }`}
                   onClick={(e) => {
@@ -472,15 +472,15 @@ const Navbar = () => {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="overflow-hidden bg-red-500"
+                      className="overflow-hidden bg-[#0f304f]"
                     >
                       {serviceItems.map((service, serviceIndex) => (
                         <Link
                           key={serviceIndex}
                           href={service.path}
-                          className={`px-10 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                          className={`px-10 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                             isServiceActive(service.path)
-                              ? "text-red-500 bg-white bg-opacity-90"
+                              ? "text-[#0f304f] bg-white bg-opacity-90"
                               : "text-white"
                           }`}
                           onClick={() => {
@@ -498,9 +498,9 @@ const Navbar = () => {
 
               <Link
                 href="/contact"
-                className={`px-6 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/contact"
-                    ? "text-red-500 bg-white bg-opacity-90 !mr-8" // Added pr-8 for right padding
+                    ? "text-[#0f304f] bg-white bg-opacity-90 !mr-8" // Added pr-8 for right padding
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -521,7 +521,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isServicesOpen && !isMinimized && !isMobileMenuOpen && (
             <motion.div
-              className="bg-red-500 rounded-t-xl shadow-lg overflow-hidden mb-0 mx-auto hidden md:block"
+              className="bg-[#0f304f] rounded-t-xl shadow-lg overflow-hidden mb-0 mx-auto hidden md:block"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -539,9 +539,9 @@ const Navbar = () => {
                   >
                     <Link
                       href={service.path}
-                      className={`px-10 py-4 hover:bg-red-600 transition-colors duration-200 text-base block ${
+                      className={`px-10 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                         isServiceActive(service.path)
-                          ? "text-red-500 bg-white bg-opacity-90"
+                          ? "text-[#0f304f] bg-white bg-opacity-90"
                           : "text-white"
                       }`}
                     >
@@ -555,7 +555,7 @@ const Navbar = () => {
         </AnimatePresence>
 
         <motion.nav
-          className={`bg-red-500 shadow-lg rounded-3xl overflow-hidden ${
+          className={`bg-[#0f304f] shadow-lg rounded-3xl overflow-hidden ${
             isServicesOpen && !isMobileMenuOpen ? "md:rounded-t-none" : ""
           } mx-auto`}
           variants={navVariants}
@@ -572,7 +572,7 @@ const Navbar = () => {
             {/* Mobile Hamburger Button */}
             <div className="md:hidden flex items-center justify-center text-white p-1">
               <button
-                className="bg-white bg-opacity-90 text-red-500 rounded-full flex items-center justify-center w-full h-full"
+                className="bg-white bg-opacity-90 text-[#0f304f] rounded-full flex items-center justify-center w-full h-full"
                 onClick={toggleMobileMenu} // Use the toggle function
                 aria-label="Toggle menu"
                 style={{ width: "48px", height: "48px", padding: "0" }}
@@ -610,7 +610,7 @@ const Navbar = () => {
             <div className="hidden md:flex items-center justify-center text-white p-1">
               {isMinimized ? (
                 <div
-                  className={`flex items-center justify-center bg-white bg-opacity-90 text-red-500 rounded-3xl p-4`}
+                  className={`flex items-center justify-center bg-white bg-opacity-90 text-[#0f304f] rounded-3xl p-4`}
                 >
                   {getMinimizedIcon()}
                 </div>
@@ -619,7 +619,7 @@ const Navbar = () => {
                   href="/"
                   className={`flex items-center justify-center ${
                     pathname === "/"
-                      ? "bg-white bg-opacity-90 text-red-500"
+                      ? "bg-white bg-opacity-90 text-[#0f304f]"
                       : " text-white"
                   } rounded-full p-4`}
                 >
@@ -639,92 +639,87 @@ const Navbar = () => {
                 >
                   <Link
                     href="/about"
-                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
                       pathname === "/about"
-                        ? "bg-white bg-opacity-90 text-red-500"
-                        : "text-white hover:bg-red-600"
+                        ? "bg-white bg-opacity-90 text-[#0f304f]"
+                        : "text-white"
                     }`}
                   >
-                    <span>About</span>
+                    About
                   </Link>
                   <Link
                     href="/Law"
-                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
                       pathname === "/Law"
-                        ? "bg-white bg-opacity-90 text-red-500"
-                        : "text-white hover:bg-red-600"
+                        ? "bg-white bg-opacity-90 text-[#0f304f]"
+                        : "text-white"
                     }`}
                   >
-                    <span>Compliant Campaigns</span>
+                    Law
+                  </Link>
+                  <Link
+                    href="/Portfolio"
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
+                      pathname === "/Portfolio"
+                        ? "bg-white bg-opacity-90 text-[#0f304f]"
+                        : "text-white"
+                    }`}
+                  >
+                    Portfolio
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
+                      pathname === "/blog"
+                        ? "bg-white bg-opacity-90 text-[#0f304f]"
+                        : "text-white"
+                    }`}
+                  >
+                    Blog
                   </Link>
 
+                  {/* Services Dropdown */}
                   <div
                     className="relative"
                     onMouseEnter={() => setIsServicesOpen(true)}
-                    onMouseLeave={() => setIsServicesOpen(false)}
                   >
                     <button
-                      className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
+                      className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 flex items-center ${
                         isAnyServiceActive()
-                          ? "bg-white bg-opacity-90 text-red-500"
-                          : isServicesOpen
-                          ? "bg-red-600 text-white"
-                          : "text-white hover:bg-red-600"
+                          ? "bg-white bg-opacity-90 text-[#0f304f]"
+                          : "text-white"
                       }`}
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
                     >
-                      <span className="flex items-center">
-                        Other capabilities
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className={`ml-1 h-4 w-4 transition-transform ${
-                            isServicesOpen ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </span>
+                      Other Capabilities
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`h-4 w-4 ml-1 transition-transform ${
+                          isServicesOpen ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
                     </button>
                   </div>
-                  <Link
-                    href="/Portfolio"
-                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
-                      pathname === "/Portfolio"
-                        ? "bg-white bg-opacity-90 text-red-500"
-                        : "text-white hover:bg-red-600"
-                    }`}
-                  >
-                    <span>Portfolio</span>
-                  </Link>
-
-                  <Link
-                    href="/blog"
-                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
-                      pathname === "/blog"
-                        ? "bg-white bg-opacity-90 text-red-500"
-                        : "text-white hover:bg-red-600"
-                    }`}
-                  >
-                    <span>Blog</span>
-                  </Link>
 
                   <Link
                     href="/contact"
-                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 text-sm ${
+                    className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
                       pathname === "/contact"
-                        ? "bg-white bg-opacity-90 text-red-500"
-                        : "text-white hover:bg-red-600"
+                        ? "bg-white bg-opacity-90 text-[#0f304f]"
+                        : "text-white"
                     }`}
                   >
-                    <span>Contact</span>
+                    Contact
                   </Link>
                 </motion.div>
               )}

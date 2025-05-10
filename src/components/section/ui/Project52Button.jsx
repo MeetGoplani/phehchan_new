@@ -62,7 +62,7 @@ const Project52Button = () => {
         href="https://project52.in/"
         target="_blank"
         rel="noopener noreferrer"
-        className={`flex items-center gap-2 bg-red-500 text-white rounded-2xl px-4 py-3 shadow-lg hover:bg-red-600 transition-colors duration-200`}
+        className={`flex items-center gap-2 bg-[#0f304f] text-white rounded-2xl px-4 py-3 shadow-lg hover:bg-[#0f304f] transition-colors duration-200`}
         style={
           isMobile
             ? {

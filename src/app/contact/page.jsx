@@ -114,7 +114,7 @@ const ContactPage = () => {
                 <p className="flex items-center text-gray-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2 text-[#D88C9A]"
+                    className="h-5 w-5 mr-2 text-[#0f304f]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -139,7 +139,7 @@ const ContactPage = () => {
                 <p className="flex items-center text-gray-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2 text-[#D88C9A]"
+                    className="h-5 w-5 mr-2 text-[#0f304f]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -156,7 +156,7 @@ const ContactPage = () => {
                 <p className="flex items-center text-gray-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2 text-[#D88C9A]"
+                    className="h-5 w-5 mr-2 text-[#0f304f]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -194,9 +194,7 @@ const ContactPage = () => {
               )}
               {submitError && ( // Display error message
                 <div className="bg-red-50 p-4 rounded-md mb-6">
-                  <p className="text-red-800">
-                    {submitError}
-                  </p>
+                  <p className="text-red-800">{submitError}</p>
                 </div>
               )}
 
@@ -218,7 +216,7 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0f304f] focus:border-[#0f304f] sm:text-sm"
                   />
                 </div>
 
@@ -236,7 +234,7 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0f304f] focus:border-[#0f304f] sm:text-sm"
                   />
                 </div>
 
@@ -253,7 +251,7 @@ const ContactPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0f304f] focus:border-[#0f304f] sm:text-sm"
                   />
                 </div>
 
@@ -271,7 +269,7 @@ const ContactPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#D88C9A] focus:border-[#D88C9A] sm:text-sm flex-1"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#0f304f] focus:border-[#0f304f] sm:text-sm flex-1"
                   ></textarea>
                 </div>
 
@@ -279,9 +277,9 @@ const ContactPage = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#D88C9A] hover:bg-[#C77C8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D88C9A] disabled:opacity-50"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0f304f] hover:bg-[#1778d4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0f304f] disabled:opacity-50"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                 </div>
               </form>
