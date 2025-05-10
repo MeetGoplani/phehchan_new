@@ -35,7 +35,7 @@ const HalfImageHalfText = ({
             }`}
             style={{ backgroundColor }}
           >
-            <div className="px-6 md:px-0 max-w-lg">
+            <div className="px-6  max-w-lg">
               {subtitle && (
                 <p className="text-[#0f304f] font-medium uppercase tracking-wider mb-4">
                   {subtitle}

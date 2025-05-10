@@ -27,25 +27,13 @@ export default function flowingmenu3() {
   return (
     <main className="overflow-hidden">
       <div className="h-[5vh]" />
-      <div ref={container}>
+      <div ref={container} className="relative w-full">
         <Slide
           src="/img2tech.jpg"
           direction={"right"}
           left={"0%"}
           progress={scrollYProgress}
         />
-        {/* <Slide
-          src="/imgphehchan.png"
-          direction={"right"}
-          left={"-25%"}
-          progress={scrollYProgress}
-        />
-        <Slide
-          src="/imgphehchan.png"
-          direction={"left"}
-          left={"-75%"}
-          progress={scrollYProgress}
-        /> */}
       </div>
       <div />
     </main>
@@ -57,22 +45,17 @@ const Slide = (props) => {
   const translateX = useTransform(
     props.progress,
     [0, 1],
-    [150 * direction, -150 * direction]
+    [0, -100 * direction]
   );
   return (
     <motion.div
       style={{ x: translateX, left: props.left }}
       className="relative flex whitespace-nowrap"
     >
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
-      <Phrase3 src={props.src} />
+      {/* Increased number of repetitions to ensure full coverage */}
+      {Array(20).fill().map((_, index) => (
+        <Phrase3 key={index} src={props.src} />
+      ))}
     </motion.div>
   );
 };

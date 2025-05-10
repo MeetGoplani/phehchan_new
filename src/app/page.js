@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <FullWidthBanner customTitle='WHERE STRATEGY MEETS STORYTELLING' customSubtitle='— AND COMPLIANCE BUILDS TRUST.'/>
       <FullWidthText
-        companyName="Compliance "
+        companyName="Compliance"
         companyDescription="Isn’t Optional—It’s Your Edge."
         additionalText="We help your brand shine for all the right reasons. At PBS, we make sure your campaigns play by the rules, while our Fractional CMO model gives you the strategy and support to grow with confidence."
         backgroundColor="#ffffff"
