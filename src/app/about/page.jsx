@@ -56,7 +56,7 @@ const AboutPage = () => {
             id: 2,
             title: "2. Build: Smart Brand Systems",
             content:
-              "From messaging and design systems to campaign frameworks, we build everything your brand needs — backed by legal reviews and structured to support safe, scalable marketing.",
+              "From messaging and design systems to campaign frameworks, we build everything your brand needs to be backed by legal reviews and structured to support safe, scalable marketing.",
           },
           {
             id: 3,
@@ -66,7 +66,7 @@ const AboutPage = () => {
           },
           {
             id: 4,
-            title: " 4. Optimize: Grow With Confidence",
+            title: "4. Optimize: Grow With Confidence",
             content:
               "Through our Fractional CMO model, we monitor, refine, and lead your ongoing marketing efforts — ensuring your brand evolves responsibly, effectively, and without legal missteps.",
           },
