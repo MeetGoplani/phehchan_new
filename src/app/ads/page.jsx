@@ -82,7 +82,6 @@ const rightContentData2 = [
 const AdsPage = () => {
   return (
     <>
-    
       <ThreePartText
         heading="MARKETING EXPERTISE"
         subheading=" Strategic Marketing Leadership"
@@ -93,8 +92,14 @@ Most growing companies struggle to transition from founder-led or reactive marke
 Our goal is not just to run campaigns or design decks. It's to architect a long-term marketing system grounded in data, insight, and clear business objectives. We lay the strategic foundation (positioning, audience understanding, GTM planning), embed performance rhythms (OKRs, blueprints, campaign cycles), and align cross-functional teams (sales, product, and leadership) so marketing becomes a true growth partner—not just a cost center.
 
 In short, we build the thinking, systems, and processes that your brand can scale with—not just survive with.
+"
+        rightContent={rightContentData}
+      />
 
-2.⁠ ⁠Creative Direction & Brand Communication
+      <ThreePartText
+        heading=""
+        subheading="Creative Direction & Brand Communication"
+        content="Creative Direction & Brand Communication
 
 Goal: Elevate brand storytelling across all media formats and customer touchpoints.
 
@@ -104,15 +109,7 @@ The goal here isn’t just to make things “look good” or “go viral.” It�
 
 We do this by creating and overseeing the full content ecosystem: identity systems, content strategy, messaging frameworks, campaign ideas, and production quality. This ensures your storytelling isn't siloed or superficial—it’s structured, strategic, and scalable.
 
-When brand expression is handled with this level of intent, it doesn’t just build visibility—it builds trust, loyalty, and cultural relevance.
-"
-        rightContent={rightContentData}
-      />
-
-      <ThreePartText
-        heading=""
-        subheading="Creative Direction & Brand Communication"
-        content="Elevate brand storytelling across all media formats and customer touchpoints"
+When brand expression is handled with this level of intent, it doesn’t just build visibility—it builds trust, loyalty, and cultural relevance."
         rightContent={rightContentData2}
       />
     </>
