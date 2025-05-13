@@ -16,7 +16,7 @@ export const items = [
 
   },
   {
-    image: '/untitled-7.png',
+    image: '/Untitled-7.png',
     link: '/Portfolio?tab=Zebra+Learn',
    
   },
