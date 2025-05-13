@@ -2,22 +2,22 @@
 export const items = [
   {
     image: '/zepto.png',
-    link: '/portfolio?tab=Zepto',
+    link: '/Portfolio?tab=Zepto',
  
   },
   {
     image: '/sda.png',
-    link: '/portfolio?tab=Surat%20Diamond%20Association',
+    link: '/Portfolio?tab=Surat%20Diamond%20Association',
  
   },
   {
     image: '/ganga.png',
-    link: '/portfolio?tab=Ganga%20Fashion',
+    link: '/Portfolio?tab=Ganga%20Fashion',
 
   },
   {
     image: '/h.png',
-    link: '/portfolio?tab=H',
+    link: '/Portfolio?tab=H',
    
   },
   

@@ -44,15 +44,15 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/", icon: "home" },
     { name: "About", path: "/about", icon: null },
-    { name: "law", path: "/law", icon: null },
+    { name: "Law", path: "/Law", icon: null },
     { name: "Other Capabilities", path: "#", icon: null, isDropdown: true },
-    { name: "portfolio", path: "/portfolio", icon: null },
+    { name: "Portfolio", path: "/Portfolio", icon: null },
     { name: "Blog", path: "/blog", icon: null },
     { name: "Contact", path: "/contact", icon: null },
   ];
 
   const serviceItems = [
-    { name: "tech", path: "/tech", icon: null },
+    { name: "Tech", path: "/Tech", icon: null },
     { name: "Marketing", path: "/ads", icon: null },
   ];
 
@@ -117,7 +117,7 @@ const Navbar = () => {
           />
         </svg>
       );
-    } else if (iconName === "tech") {
+    } else if (iconName === "Tech") {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -194,12 +194,12 @@ const Navbar = () => {
     // Check current path and return appropriate icon
     if (pathname === "/about") {
       return renderIcon("about");
-    } else if (pathname === "/tech" || pathname === "/tech") {
-      return renderIcon("tech");
+    } else if (pathname === "/Tech" || pathname === "/Tech") {
+      return renderIcon("Tech");
     } else if (
       pathname.includes("/ads") ||
-      pathname.includes("/law") ||
-      pathname.includes("/law")
+      pathname.includes("/Law") ||
+      pathname.includes("/Law")
     ) {
       return renderIcon("services");
     } else if (pathname === "/contact") {
@@ -440,9 +440,9 @@ const Navbar = () => {
                 About
               </Link>
               <Link
-                href="/law"
+                href="/Law"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
-                  pathname === "/law"
+                  pathname === "/Law"
                     ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
@@ -517,15 +517,15 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
               <Link
-                href="/portfolio"
+                href="/Portfolio"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
-                  pathname === "/portfolio"
+                  pathname === "/Portfolio"
                     ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                portfolio
+                Portfolio
               </Link>
               <Link
                 href="/blog"
@@ -692,9 +692,9 @@ const Navbar = () => {
                     About
                   </Link>
                   <Link
-                    href="/law"
+                    href="/Law"
                     className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
-                      pathname === "/law"
+                      pathname === "/Law"
                         ? "bg-white bg-opacity-90 text-[#0f304f]"
                         : "text-white"
                     }`}
@@ -736,14 +736,14 @@ const Navbar = () => {
                     </button>
                   </div>
                   <Link
-                    href="/portfolio"
+                    href="/Portfolio"
                     className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
-                      pathname === "/portfolio"
+                      pathname === "/Portfolio"
                         ? "bg-white bg-opacity-90 text-[#0f304f]"
                         : "text-white"
                     }`}
                   >
-                    portfolio
+                    Portfolio
                   </Link>
                   <Link
                     href="/blog"
