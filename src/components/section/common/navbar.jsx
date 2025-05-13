@@ -699,7 +699,7 @@ const Navbar = () => {
                         : "text-white"
                     }`}
                   >
-                    Compliant campaign
+                    Compliant Campaign
                   </Link>
 
                   {/* Services Dropdown */}
