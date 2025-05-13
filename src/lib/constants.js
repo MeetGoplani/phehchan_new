@@ -16,8 +16,8 @@ export const items = [
 
   },
   {
-    image: '/h.png',
-    link: '/Portfolio?tab=H',
+    image: '/untitled-7.png',
+    link: '/Portfolio?tab=Zebra+Learn',
    
   },
   

@@ -66,8 +66,24 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Right side - Social media icons */}
+            {/* Right side - Social media icons and contact info */}
             <div className="md:w-1/3 md:text-right">
+              {/* Contact information */}
+              <div className="mb-4">
+                <p className="text-sm mb-1">
+                  <span className="font-medium">Phone:</span>{" "}
+                  <a href="tel:+918980007005" className="hover:underline">
+                    +91 8980007005
+                  </a>
+                </p>
+                <p className="text-sm mb-3">
+                  <span className="font-medium">Email:</span>{" "}
+                  <a href="mailto:contact@phehchan.com" className="hover:underline">
+                    contact@phehchan.com
+                  </a>
+                </p>
+              </div>
+
               {/* Social media icons - left aligned on mobile, right aligned on desktop */}
               <div className="flex md:justify-end space-x-4 mb-4">
                 <Link
