@@ -72,7 +72,7 @@ const AboutPage = () => {
           },
           // Additional items...
         ]}
-        imageSrc="/imgphehchan.png"
+        imageSrc="/untitled-8.jpg"
         imageAlt="Growth strategy process"
       />
 

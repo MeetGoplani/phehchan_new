@@ -25,25 +25,50 @@ const FAQWithImage = ({
     // Set initial height
     setImageHeight(minHeight);
 
+    // Function to update image height based on content height
+    const updateImageHeight = () => {
+      if (contentRef.current) {
+        const contentHeight = contentRef.current.offsetHeight;
+        setImageHeight(Math.max(minHeight, contentHeight));
+      }
+    };
+
+    // Call once on mount
+    updateImageHeight();
+
     // Initialize ResizeObserver to monitor content height changes
     if (contentRef.current && !resizeObserverRef.current) {
-      resizeObserverRef.current = new ResizeObserver((entries) => {
-        for (let entry of entries) {
-          const contentHeight = entry.contentRect.height;
-          setImageHeight(Math.max(minHeight, contentHeight));
-        }
+      resizeObserverRef.current = new ResizeObserver(() => {
+        updateImageHeight();
       });
 
       resizeObserverRef.current.observe(contentRef.current);
     }
+
+    // Also update on window resize
+    window.addEventListener('resize', updateImageHeight);
 
     // Cleanup observer on unmount
     return () => {
       if (resizeObserverRef.current) {
         resizeObserverRef.current.disconnect();
       }
+      window.removeEventListener('resize', updateImageHeight);
     };
   }, [items, minHeight]);
+
+  // Update height when active index changes
+  useEffect(() => {
+    // Small timeout to allow the animation to start
+    const timer = setTimeout(() => {
+      if (contentRef.current) {
+        const contentHeight = contentRef.current.offsetHeight;
+        setImageHeight(Math.max(minHeight, contentHeight));
+      }
+    }, 50);
+    
+    return () => clearTimeout(timer);
+  }, [activeIndex, minHeight]);
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -57,14 +82,15 @@ const FAQWithImage = ({
           <div
             ref={imageRef}
             style={{ height: `${imageHeight}px` }}
-            className="transition-all duration-300"
+            className="transition-all duration-500 ease-in-out"
           >
             <Image
               src={imageSrc}
               alt={imageAlt}
               width={600}
-              height={800}
-              className="w-full h-full object-cover"
+              height={imageHeight}
+              className="w-full h-full object-contain"
+              priority
             />
             {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-300 via-teal-200 to-yellow-100 opacity-50 mix-blend-overlay" /> */}
           </div>
@@ -103,6 +129,13 @@ const FAQWithImage = ({
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
+                      onAnimationComplete={() => {
+                        // Update height after animation completes
+                        if (contentRef.current) {
+                          const contentHeight = contentRef.current.offsetHeight;
+                          setImageHeight(Math.max(minHeight, contentHeight));
+                        }
+                      }}
                     >
                       <div className="pb-4 text-gray-600">{item.content}</div>
                     </motion.div>
