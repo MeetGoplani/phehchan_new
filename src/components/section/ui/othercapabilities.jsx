@@ -57,7 +57,7 @@ const OtherCapabilities = () => {
           </Link>
 
           {/* Ads Column */}
-          <Link href="/ads" className="block">
+          <Link href="/marketing" className="block">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
               <div className="p-6">
                 <div className="flex items-center mb-4">
