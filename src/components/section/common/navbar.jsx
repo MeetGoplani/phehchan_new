@@ -44,7 +44,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/", icon: "home" },
     { name: "About", path: "/about", icon: null },
-    { name: "Law", path: "/Law", icon: null },
+    { name: "compliant-campaigns", path: "/compliant-campaigns", icon: null },
     { name: "Other Capabilities", path: "#", icon: null, isDropdown: true },
     { name: "Portfolio", path: "/Portfolio", icon: null },
     { name: "Blog", path: "/blog", icon: null },
@@ -53,7 +53,7 @@ const Navbar = () => {
 
   const serviceItems = [
     { name: "Tech", path: "/Tech", icon: null },
-    { name: "Marketing", path: "/ads", icon: null },
+    { name: "Marketing", path: "/marketing", icon: null },
   ];
 
   // Function to check if footer is visible
@@ -197,9 +197,9 @@ const Navbar = () => {
     } else if (pathname === "/Tech" || pathname === "/Tech") {
       return renderIcon("Tech");
     } else if (
-      pathname.includes("/ads") ||
-      pathname.includes("/Law") ||
-      pathname.includes("/Law")
+      pathname.includes("/marketing") ||
+      pathname.includes("/compliant-campaigns") ||
+      pathname.includes("/compliant-campaigns")
     ) {
       return renderIcon("services");
     } else if (pathname === "/contact") {
@@ -440,9 +440,9 @@ const Navbar = () => {
                 About
               </Link>
               <Link
-                href="/Law"
+                href="/compliant-campaigns"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
-                  pathname === "/Law"
+                  pathname === "/compliant-campaigns"
                     ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
@@ -692,9 +692,9 @@ const Navbar = () => {
                     About
                   </Link>
                   <Link
-                    href="/Law"
+                    href="/compliant-campaigns"
                     className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
-                      pathname === "/Law"
+                      pathname === "/compliant-campaigns"
                         ? "bg-white bg-opacity-90 text-[#0f304f]"
                         : "text-white"
                     }`}

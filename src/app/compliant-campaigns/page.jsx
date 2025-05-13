@@ -1,5 +1,6 @@
 "use client";
 import TextCarousel from "@/components/section/common/textcarousel";
+import DisclaimerModal from "@/components/section/ui/disclaimermodel";
 import dynamic from "next/dynamic";
 import React from "react";
 
@@ -16,6 +17,7 @@ const FullWidthBanner = dynamic(
 const LawPage = () => {
   return (
     <>
+      <DisclaimerModal />
       {/* <div className="lg:pb-8 pb-6 gap-4 flex flex-col lg:max-w-3xl mx-auto lg:text-center justify-center items-center "></div>
       <FullWidthText
         companyName="Our Expertise"
