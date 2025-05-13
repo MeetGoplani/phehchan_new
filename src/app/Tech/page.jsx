@@ -12,10 +12,10 @@ import React from "react";
 const TechPage = () => {
   return (
     <>
-     
+      <ThreePartText heading="TECH EXPERTISE" />
 
       <ThreePartText
-        heading="TECH EXPERTISE"
+        heading=""
         subheading="Web Development"
         content="Build your digital presence with web development tailored to meet your personalized business needs. Our team specializes in creating responsive, fast-loading, and user-friendly websites to attract an audience. Whether you're aiming for an informative site or a complex e-commerce platform, we ensure your web presence is powerful and persuasive."
         rightContent=""

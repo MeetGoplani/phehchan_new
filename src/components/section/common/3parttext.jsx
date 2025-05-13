@@ -14,11 +14,12 @@ const ThreePartText = ({
   }, []);
   
   return (
-    <section className="py-6 sm:py-8 md:py-12">
+    <section className="py-0 sm:py-8 md:py-0">
       <div className="container mx-auto px-2 sm:px-4">
         {/* Main Heading - Top */}
+        
         <motion.h1 
-          className="pt-8 sm:pt-12 text-4xl sm:text-5xl md:text-7xl font-black text-center mb-8 sm:mb-12 md:mb-16 tracking-tight leading-tight"
+          className="pt-8 sm:pt-12 text-4xl sm:text-5xl md:text-7xl font-black text-center sm:mb-12 tracking-tight leading-tight"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -26,11 +27,10 @@ const ThreePartText = ({
         >
           {heading}
         </motion.h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-0 sm:gap-8 max-w-6xl mx-auto">
           {/* Left Column - Subheading */}
           <motion.div 
-            className="md:col-span-3 mb-4 md:mb-0"
+            className="md:col-span-3  md:mb-0"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -43,7 +43,7 @@ const ThreePartText = ({
           
           {/* Middle Column - Main Content */}
           <motion.div 
-            className="md:col-span-6 mb-4 md:mb-0"
+            className="md:col-span-6 md:mb-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}

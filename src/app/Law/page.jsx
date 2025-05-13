@@ -10,7 +10,6 @@ const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwi
 const LawPage = () => {
   return (
     <>
-      
       {/* <div className="lg:pb-8 pb-6 gap-4 flex flex-col lg:max-w-3xl mx-auto lg:text-center justify-center items-center "></div>
       <FullWidthText
         companyName="Our Expertise"
@@ -28,8 +27,12 @@ const LawPage = () => {
           />
         ))}
       </div> */}
+
       <ThreePartText
         heading="COMPLIANT CAMPAIGN EXPERTISE"
+      />
+      <ThreePartText
+        heading=""
         subheading="Pre-publication Advertising Advice and Due Diligence"
         content="With a vast and multi-dimensional experience in the industry, we know all the right ways to get your advertising communication right the first time Our first hand experience in working closely with ASCI provides us with unique expertise and insights to address your ASCI related concerns We provide advertising advice to advertisers and advertising agencies to identify weak spots in their proposed advertising communicationFor confidential projects it is crucial that advertiser receive this advice without any fear of breach of confidentiality and in super prompt timeline We provide recommendations on how the advertisement may be worded so as to make the communication 'complaint proof' When it comes to advertising communication, you can rely on Tap-a-Gain for a thorough due diligence Be proactive and ensure that your ads are complying with the law of the land, advertising regulations and complete the due diligence for advertising compliance"
         rightContent=""
@@ -84,8 +87,6 @@ We would be happy to assist you to build a strong case against competitor advert
         //   url: "#survey",
         // }}
       />
-      
-
     </>
   );
 };

@@ -5,6 +5,7 @@ import { gql, useQuery } from "@apollo/client";
 import client from "@/lib/apolloClient";
 import { ApolloProvider } from "@apollo/client/react";
 import ThreePartText from "@/components/section/common/3parttext";
+import { Loader2 } from "lucide-react";
 
 // GraphQL query
 const GET_POSTS = gql`
@@ -30,7 +31,7 @@ const GET_POSTS = gql`
 function BlogPageContent() {
   const { loading, error, data } = useQuery(GET_POSTS);
 
-  if (loading) return <p className="text-center py-8">Loading...</p>;
+  if (loading) return <div className="flex min-h-screen items-center justify-center w-full"><Loader2 className="animate-spin "/> </div>;
   if (error)
     return (
       <p className="text-center py-8 text-red-500">Error loading posts.</p>

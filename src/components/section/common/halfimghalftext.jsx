@@ -4,9 +4,9 @@ import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 
 const HalfImageHalfText = ({
-  subtitle = "A LAWYER",
+  subtitle = "",
   title = "Meet Apurva",
-  name = "Brands & communication expert",
+  name = "Brands & Communication Expert",
   description = "With over twelve years in the creative industry as a professional photographer, Apurva Mehra has cultivated a sharp eye for aesthetics, storytelling, and innovation. His journey later expanded into the world of law, where he graduated with an LLB in Business Administration from Auro University. This unique combination of creative vision and strategic, detail-driven thinking sets him apart as a leader.Fueling his passion for branding and marketing, Apurva further honed his skills at the Advertising Standards Council of India (ASCI), where he deepened his understanding of brand communication ethics and standards.Apurva merges creativity, legal expertise, and strategic brand building to craft identities that are authentic, impactful, and enduring. His leadership is rooted in a belief that real brands aren't built overnight; they are shaped by passion, clarity, and resilience over time.",
   imageUrl = "/imgphehchan.png",
   imageAlt = "Profile image",
@@ -20,7 +20,7 @@ const HalfImageHalfText = ({
   primaryButtonText = "Book a call",
   primaryButtonLink = "https://cal.com/phehchan",
   secondaryButtonText = "View Profile",
-  secondaryButtonLink = "https://www.linkedin.com/company/phehchan-brand-solutions/",
+  secondaryButtonLink = "https://www.linkedin.com/in/apurvmehraa/",
   videoUrl = "/meetapurva.mp4",
 }) => {
   const isImageRight = imagePosition === "right";
@@ -40,15 +40,15 @@ const HalfImageHalfText = ({
         // Adjust this value as needed based on visual inspection
         setContentHeight(`${height - 40}px`);
       };
-      
+
       // Initial measurement
       updateHeight();
-      
+
       // Update on window resize
-      window.addEventListener('resize', updateHeight);
-      
+      window.addEventListener("resize", updateHeight);
+
       // Cleanup
-      return () => window.removeEventListener('resize', updateHeight);
+      return () => window.removeEventListener("resize", updateHeight);
     }
   }, []);
 
@@ -78,13 +78,13 @@ const HalfImageHalfText = ({
 
   const togglePlayPause = () => {
     if (!videoRef.current) return;
-    
+
     if (isPlaying) {
       videoRef.current.pause();
     } else {
       videoRef.current.play();
     }
-    
+
     setIsPlaying(!isPlaying);
   };
 
@@ -178,13 +178,15 @@ const HalfImageHalfText = ({
           </div>
 
           {/* Video Section (replacing Image Section) */}
-          <div className={`w-full md:w-2/5 ${isImageRight ? "" : "order-1"} flex justify-center items-center`}>
+          <div
+            className={`w-full md:w-2/5 ${isImageRight ? "" : "order-1"} flex justify-center items-center`}
+          >
             <div
               ref={videoContainerRef}
               className="bg-white overflow-hidden relative w-11/12 md:w-10/12"
-              style={{ 
+              style={{
                 height: contentHeight,
-                maxWidth: "353px"
+                maxWidth: "353px",
               }}
             >
               <video
@@ -201,7 +203,7 @@ const HalfImageHalfText = ({
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               />
-              
+
               {/* Custom Play Button - Only show when paused */}
               {!isPlaying && (
                 <button
@@ -209,9 +211,25 @@ const HalfImageHalfText = ({
                   className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-4 shadow-lg hover:bg-opacity-90 transition-all z-10"
                   aria-label="Play video"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#0f304f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-[#0f304f]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </button>
               )}

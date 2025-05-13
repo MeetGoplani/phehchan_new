@@ -448,7 +448,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Compliant campaign
+                Compliant Campaign
               </Link>
 
               {/* Other Capabilities dropdown with toggle */}
@@ -516,7 +516,7 @@ const Navbar = () => {
                   )}
                 </AnimatePresence>
               </div>
-              <Link
+              {/* <Link
                 href="/Portfolio"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/Portfolio"
@@ -526,7 +526,7 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Portfolio
-              </Link>
+              </Link> */}
               <Link
                 href="/blog"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
@@ -735,7 +735,7 @@ const Navbar = () => {
                       </svg>
                     </button>
                   </div>
-                  <Link
+                  {/* <Link
                     href="/Portfolio"
                     className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
                       pathname === "/Portfolio"
@@ -744,7 +744,7 @@ const Navbar = () => {
                     }`}
                   >
                     Portfolio
-                  </Link>
+                  </Link> */}
                   <Link
                     href="/blog"
                     className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${

@@ -20,6 +20,7 @@ const PortfolioTabs = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
 
   // Check scroll position to show/hide arrows
   const checkScrollPosition = () => {
@@ -36,8 +37,11 @@ const PortfolioTabs = () => {
       checkScrollPosition();
       tabsRef.current.addEventListener("scroll", checkScrollPosition);
 
-      // Scroll to the active tab when component mounts
-      scrollToActiveTab();
+      // Only scroll to active tab on initial load
+      if (!initialLoadComplete) {
+        scrollToActiveTab();
+        setInitialLoadComplete(true);
+      }
     }
 
     return () => {
@@ -45,17 +49,17 @@ const PortfolioTabs = () => {
         tabsRef.current.removeEventListener("scroll", checkScrollPosition);
       }
     };
-  }, []);
+  }, [initialLoadComplete]);
 
-  // Update active tab when URL parameter changes
+  // Update active tab when URL parameter changes, but don't auto-scroll
   useEffect(() => {
     if (tabParam && companies.includes(tabParam)) {
       setActiveTab(tabParam);
-      scrollToActiveTab();
+      // Don't auto-scroll when URL changes
     }
   }, [tabParam, companies]);
 
-  // Scroll to active tab
+  // Scroll to active tab - only used on initial load
   const scrollToActiveTab = () => {
     if (tabsRef.current) {
       const activeTabElement = tabsRef.current.querySelector(
@@ -100,6 +104,8 @@ const PortfolioTabs = () => {
     const url = new URL(window.location);
     url.searchParams.set("tab", tab);
     window.history.pushState({}, "", url);
+    
+    // Don't auto-scroll to the selected tab
   };
 
   return (
@@ -107,15 +113,16 @@ const PortfolioTabs = () => {
       <div className="container mx-auto px-4">
         {/* <h2 className="text-4xl font-bold text-center mb-12">Our Portfolio</h2> */}
 
-        {/* Tabs Navigation with Subtle Arrows */}
-        <div className="relative mb-8">
-          {/* Left Arrow */}
+        {/* Tabs Navigation with Arrows Outside */}
+        <div className="flex items-center mb-8">
+          {/* Left Arrow - Outside the tabs */}
           <button
             onClick={() => scrollTabs("left")}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white bg-opacity-70 rounded-full p-1.5 shadow-sm transition-opacity duration-300 ${
-              showLeftArrow ? "opacity-100" : "opacity-0 pointer-events-none"
+            className={`flex-shrink-0 bg-white rounded-full p-2 shadow-sm transition-opacity duration-300 ${
+              showLeftArrow ? "opacity-100" : "opacity-50 cursor-not-allowed"
             }`}
             aria-label="Scroll tabs left"
+            disabled={!showLeftArrow}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -133,35 +140,38 @@ const PortfolioTabs = () => {
             </svg>
           </button>
 
-          {/* Scrollable Tabs */}
+          {/* Scrollable Tabs Container */}
           <div
             ref={tabsRef}
-            className="flex overflow-x-auto py-2 px-10 space-x-4 no-scrollbar"
+            className="flex-1 overflow-x-auto whitespace-nowrap mx-2 no-scrollbar"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {companies.map((company) => (
-              <button
-                key={company}
-                data-tab={company}
-                onClick={() => handleTabChange(company)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full transition-colors ${
-                  activeTab === company
-                    ? "bg-[#0f304f] text-white"
-                    : "bg-gray-100 text-gray-800 hover:bg-gray-200"
-                }`}
-              >
-                {company}
-              </button>
-            ))}
+            <div className="flex space-x-4 py-2">
+              {companies.map((company) => (
+                <button
+                  key={company}
+                  data-tab={company}
+                  onClick={() => handleTabChange(company)}
+                  className={`whitespace-nowrap px-4 py-2 rounded-full transition-colors flex-shrink-0 ${
+                    activeTab === company
+                      ? "bg-[#0f304f] text-white"
+                      : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                  }`}
+                >
+                  {company}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Right Arrow */}
+          {/* Right Arrow - Outside the tabs */}
           <button
             onClick={() => scrollTabs("right")}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white bg-opacity-70 rounded-full p-1.5 shadow-sm transition-opacity duration-300 ${
-              showRightArrow ? "opacity-100" : "opacity-0 pointer-events-none"
+            className={`flex-shrink-0 bg-white rounded-full p-2 shadow-sm transition-opacity duration-300 ${
+              showRightArrow ? "opacity-100" : "opacity-50 cursor-not-allowed"
             }`}
             aria-label="Scroll tabs right"
+            disabled={!showRightArrow}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

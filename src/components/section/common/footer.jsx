@@ -44,9 +44,7 @@ const Footer = () => {
             <div className="mb-8 md:mb-0 md:w-1/3">
               <p className="text-sm mb-1">Phehchan Brand Solutions</p>
               <p className="text-sm mb-1">511, 5th Floor, SNS Platina,</p>
-              <p className="text-sm mb-1">
-                nr. Someshwara Enclave,
-              </p>
+              <p className="text-sm mb-1">nr. Someshwara Enclave,</p>
               <p className="text-sm mb-1">Vesu, Surat,</p>
               <p className="text-sm">Gujarat 395007</p>
             </div>
@@ -59,7 +57,7 @@ const Footer = () => {
                     ABOUT US
                   </h3>
                 </Link>
-                
+
                 <Link href="/contact" className="block mt-1">
                   <h3 className="text-md font-medium mb-0 pb-0 inline-block hover:text-gray-400 transition-colors">
                     CONTACT US
@@ -73,7 +71,7 @@ const Footer = () => {
               {/* Social media icons - left aligned on mobile, right aligned on desktop */}
               <div className="flex md:justify-end space-x-4 mb-4">
                 <Link
-                  href="#"
+                  href="https://www.instagram.com/phehchan.brandsolutions?igsh=NnI4MXFsZGVjNDhv"
                   className="text-white hover:text-gray-400 transition-colors"
                 >
                   <svg
@@ -87,7 +85,7 @@ const Footer = () => {
                   </svg>
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.linkedin.com/company/phehchan-brand-solutions/"
                   className="text-white hover:text-gray-400 transition-colors"
                 >
                   <svg
@@ -101,7 +99,9 @@ const Footer = () => {
                   </svg>
                 </Link>
               </div>
-              <p className="text-xs md:text-right">© 2024 Phehchan. All rights reserved.</p>
+              <p className="text-xs md:text-right">
+                © 2024 Phehchan. All rights reserved.
+              </p>
             </div>
           </div>
 
