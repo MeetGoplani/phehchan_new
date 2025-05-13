@@ -46,214 +46,25 @@ const FullWidthBanner = ({
       className="relative w-full overflow-hidden"
       style={{
         height: bannerHeight,
-        background: `linear-gradient(135deg, ${gradientStart}, ${gradientEnd})`,
       }}
     >
-      {/* Circular pattern overlay */}
-      <div className="absolute inset-0 w-full h-full">
-        {/* Concentric semi-circles at the bottom */}
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "200px",
-            height: "100px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "100px",
-            borderTopRightRadius: "100px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "400px",
-            height: "200px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "200px",
-            borderTopRightRadius: "200px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "600px",
-            height: "300px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "300px",
-            borderTopRightRadius: "300px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "800px",
-            height: "400px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "400px",
-            borderTopRightRadius: "400px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "1000px",
-            height: "500px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "500px",
-            borderTopRightRadius: "500px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "1200px",
-            height: "600px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "600px",
-            borderTopRightRadius: "600px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "1400px",
-            height: "700px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "700px",
-            borderTopRightRadius: "700px",
-          }}
-        ></div>
-
-        {/* Additional semicircles for larger screens */}
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "1600px",
-            height: "800px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "800px",
-            borderTopRightRadius: "800px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "1800px",
-            height: "900px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "900px",
-            borderTopRightRadius: "900px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "2000px",
-            height: "1000px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "1000px",
-            borderTopRightRadius: "1000px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "2200px",
-            height: "1100px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "1100px",
-            borderTopRightRadius: "1100px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "2400px",
-            height: "1200px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "1200px",
-            borderTopRightRadius: "1200px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "2600px",
-            height: "1300px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "1300px",
-            borderTopRightRadius: "1300px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "2800px",
-            height: "1400px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "1400px",
-            borderTopRightRadius: "1400px",
-          }}
-        ></div>
-
-        <div
-          className="absolute border-t-2 border-white opacity-10 rounded-t-full"
-          style={{
-            width: "3000px",
-            height: "1500px",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            borderTopLeftRadius: "1500px",
-            borderTopRightRadius: "1500px",
-          }}
-        ></div>
-      </div>
+      <div className="absolute inset-0 bg-black/70 z-10"></div>
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/videoplayback.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{ zIndex: 0 }}
+      />
 
       {/* Optional Overlay */}
       {overlay && (
         <div
           className="absolute inset-0 w-full h-full"
-          style={{ backgroundColor: overlayColor }}
+          style={{ backgroundColor: overlayColor, zIndex: 1 }}
         />
       )}
 
@@ -272,7 +83,7 @@ const FullWidthBanner = ({
 
         {/* Custom Title (if provided) */}
         {customTitle && (
-          <h1 className="sm:text-2xl md:text-2xl  mt-8 font-bold text-white mb-0">
+          <h1 className="sm:text-2xl md:text-2xl mt-8 font-bold text-white mb-0">
             {customTitle}
           </h1>
         )}
