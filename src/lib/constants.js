@@ -2,29 +2,25 @@
 export const items = [
   {
     image: '/zepto.png',
-    link: 'https://google.com/',
+    link: '/portfolio?tab=Zepto',
  
   },
   {
-    image: 'https://www.phehchan.com/img33.jpg',
-    link: 'https://google.com/',
+    image: '/sda.png',
+    link: '/portfolio?tab=Surat%20Diamond%20Association',
  
   },
   {
-    image: 'https://www.phehchan.com/img12.jpg',
-    link: 'https://google.com/',
+    image: '/ganga.png',
+    link: '/portfolio?tab=Ganga%20Fashion',
 
   },
   {
-    image: 'https://www.phehchan.com/img34.jpg',
-    link: 'https://google.com/',
+    image: '/h.png',
+    link: '/portfolio?tab=H',
    
   },
-  {
-    image: '/imgphehchan.png',
-    link: 'https://google.com/',
-   
-  },
+  
   
 ];
 
@@ -154,50 +150,228 @@ export const portfolioImages = {
     {
       id: "sda-1",
       src: "/sdaportfolio1.png",
-      alt: "Surat Diamond Association project 1"
+      alt: ""
     },
     {
       id: "sda-2",
       src: "/sdaportfolio2.png",
-      alt: "Surat Diamond Association project 2"
+      alt: ""
     },
     {
       id: "sda-3",
       src: "/sdaportfolio3.png",
-      alt: "Surat Diamond Association project 3"
+      alt: ""
     }
   ],
-  "Marketing": [
+  "Zepto": [
     {
-      id: "marketing-1",
-      src: "https://www.phehchan.com/img13.jpg",
-      alt: "Marketing project 1"
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
     },
     {
-      id: "marketing-2",
-      src: "https://www.phehchan.com/img33.jpg",
-      alt: "Marketing project 2"
-    }
-  ],
-  "Tech": [
-    {
-      id: "tech-1",
-      src: "https://www.phehchan.com/img12.jpg",
-      alt: "Tech project 1"
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
     },
     {
-      id: "tech-2",
-      src: "https://www.phehchan.com/img34.jpg",
-      alt: "Tech project 2"
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Project 52": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Desai Textile": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Roongta Entertainment": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Wauly": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Life's A Beach": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"H": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"School Chameleon": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Lcuid": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"TGT": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Zebra Learn": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Life Beautiful Academy": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
+    }
+  ],"Ganga Fashion": [
+    {
+      id: "sda-1",
+      src: "/sdaportfolio1.png",
+      alt: ""
+    },
+    {
+      id: "sda-2",
+      src: "/sdaportfolio2.png",
+      alt: ""
+    },
+    {
+      id: "sda-3",
+      src: "/sdaportfolio3.png",
+      alt: ""
     }
   ],
-  "Design": [
-    {
-      id: "design-1",
-      src: "/imgphehchan.png",
-      alt: "Design project 1"
-    }
-  ]
 };
 
 

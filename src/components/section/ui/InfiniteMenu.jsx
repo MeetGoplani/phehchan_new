@@ -1182,11 +1182,8 @@ export default function InfiniteMenu({ items = [] }) {
   }, [items]);
 
   const handleButtonClick = () => {
-    if (!activeItem?.link) return;
-    if (activeItem.link.startsWith("http")) {
-      window.open(activeItem.link, "_blank");
-    } else {
-      console.log("Internal route:", activeItem.link);
+    if (activeItem && activeItem.link) {
+      window.location.href = activeItem.link;
     }
   };
 
@@ -1201,9 +1198,9 @@ export default function InfiniteMenu({ items = [] }) {
       <canvas
         id="infinite-grid-menu-canvas"
         ref={canvasRef}
-        className="cursor-grab w-full h-[70vh] md:h-full overflow-hidden relative outline-none active:cursor-grabbing"
+        className="w-full h-full"
       />
-      
+
       {/* Mobile-only instruction text */}
       <div className="block md:hidden text-center text-sm mt-2 text-white absolute bottom-2 left-0 right-0 z-10">
         hold to see the magic happen

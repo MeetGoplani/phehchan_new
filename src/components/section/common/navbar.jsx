@@ -44,15 +44,15 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/", icon: "home" },
     { name: "About", path: "/about", icon: null },
-    { name: "Law", path: "/Law", icon: null },
+    { name: "law", path: "/law", icon: null },
     { name: "Other Capabilities", path: "#", icon: null, isDropdown: true },
-    { name: "Portfolio", path: "/Portfolio", icon: null },
+    { name: "portfolio", path: "/portfolio", icon: null },
     { name: "Blog", path: "/blog", icon: null },
     { name: "Contact", path: "/contact", icon: null },
   ];
 
   const serviceItems = [
-    { name: "Tech", path: "/Tech", icon: null },
+    { name: "tech", path: "/tech", icon: null },
     { name: "Marketing", path: "/ads", icon: null },
   ];
 
@@ -194,12 +194,12 @@ const Navbar = () => {
     // Check current path and return appropriate icon
     if (pathname === "/about") {
       return renderIcon("about");
-    } else if (pathname === "/tech" || pathname === "/Tech") {
+    } else if (pathname === "/tech" || pathname === "/tech") {
       return renderIcon("tech");
     } else if (
       pathname.includes("/ads") ||
       pathname.includes("/law") ||
-      pathname.includes("/Law")
+      pathname.includes("/law")
     ) {
       return renderIcon("services");
     } else if (pathname === "/contact") {
@@ -376,11 +376,11 @@ const Navbar = () => {
       return "expanded";
     }
 
-    if (window.innerWidth <= 768) {
-      // Mobile
+    if (window.innerWidth <= 1023) {
+      // Mobile and medium screens (changed from 768 to 1023)
       return isMobileMenuOpen ? "mobileExpanded" : "mobileMinimized";
     } else {
-      // Desktop
+      // Large screens only
       return isMinimized ? "minimized" : "expanded";
     }
   };
@@ -407,7 +407,7 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <motion.div
             ref={mobileMenuRef}
-            className="absolute bottom-[72px] left-0 w-full bg-[#0f304f] rounded-xl shadow-lg overflow-hidden md:hidden"
+            className="absolute bottom-[72px] left-0 w-full bg-[#0f304f] rounded-xl shadow-lg overflow-hidden lg:hidden"
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -440,9 +440,9 @@ const Navbar = () => {
                 About
               </Link>
               <Link
-                href="/Law"
+                href="/law"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
-                  pathname === "/Law"
+                  pathname === "/law"
                     ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
@@ -517,15 +517,15 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
               <Link
-                href="/Portfolio"
+                href="/portfolio"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
-                  pathname === "/Portfolio"
+                  pathname === "/portfolio"
                     ? "text-[#0f304f] bg-white bg-opacity-90"
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Portfolio
+                portfolio
               </Link>
               <Link
                 href="/blog"
@@ -543,7 +543,7 @@ const Navbar = () => {
                 href="/contact"
                 className={`px-6 py-4 hover:bg-[#0f304f]/80 transition-colors duration-200 text-base block ${
                   pathname === "/contact"
-                    ? "text-[#0f304f] bg-white bg-opacity-90 !mr-8" // Added pr-8 for right padding
+                    ? "text-[#0f304f] bg-white bg-opacity-90 lg:!mr-8" // Added pr-8 for right padding
                     : "text-white"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -564,7 +564,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isServicesOpen && !isMinimized && !isMobileMenuOpen && (
             <motion.div
-              className="bg-[#0f304f] rounded-t-xl shadow-lg overflow-hidden mb-0 mx-auto hidden md:block"
+              className="bg-[#0f304f] rounded-t-xl shadow-lg overflow-hidden mb-0 mx-auto hidden lg:block"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -600,7 +600,7 @@ const Navbar = () => {
 
         <motion.nav
           className={`bg-[#0f304f] shadow-lg rounded-3xl overflow-hidden ${
-            isServicesOpen && !isMobileMenuOpen ? "md:rounded-t-none" : ""
+            isServicesOpen && !isMobileMenuOpen ? "lg:rounded-t-none" : ""
           } mx-auto`}
           variants={navVariants}
           animate={getNavVariant()}
@@ -613,8 +613,8 @@ const Navbar = () => {
           }}
         >
           <div className="flex items-center h-16 relative justify-around">
-            {/* Mobile Hamburger Button */}
-            <div className="md:hidden flex items-center justify-center text-white p-1">
+            {/* Mobile Hamburger Button - Show on medium screens too */}
+            <div className="lg:hidden flex items-center justify-center text-white p-1">
               <button
                 ref={mobileButtonRef}
                 className="bg-white bg-opacity-90 text-[#0f304f] rounded-full flex items-center justify-center w-full h-full"
@@ -650,8 +650,8 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Desktop Home Icon */}
-            <div className="hidden md:flex items-center justify-center text-white p-1">
+            {/* Desktop Home Icon - Only on large screens */}
+            <div className="hidden lg:flex items-center justify-center text-white p-1">
               {isMinimized ? (
                 <div
                   className={`flex items-center justify-center bg-white bg-opacity-90 text-[#0f304f] rounded-3xl p-4`}
@@ -675,7 +675,7 @@ const Navbar = () => {
             <AnimatePresence>
               {!isMinimized && (
                 <motion.div
-                  className="hidden md:flex flex-1 justify-around items-center pl-4 pr-4 space-x-1"
+                  className="hidden lg:flex flex-1 justify-around items-center pl-4 pr-4 space-x-1"
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
@@ -692,9 +692,9 @@ const Navbar = () => {
                     About
                   </Link>
                   <Link
-                    href="/Law"
+                    href="/law"
                     className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
-                      pathname === "/Law"
+                      pathname === "/law"
                         ? "bg-white bg-opacity-90 text-[#0f304f]"
                         : "text-white"
                     }`}
@@ -736,14 +736,14 @@ const Navbar = () => {
                     </button>
                   </div>
                   <Link
-                    href="/Portfolio"
+                    href="/portfolio"
                     className={`px-3 py-2 font-medium rounded-full transition-colors duration-200 ${
-                      pathname === "/Portfolio"
+                      pathname === "/portfolio"
                         ? "bg-white bg-opacity-90 text-[#0f304f]"
                         : "text-white"
                     }`}
                   >
-                    Portfolio
+                    portfolio
                   </Link>
                   <Link
                     href="/blog"
