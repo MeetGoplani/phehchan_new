@@ -3,6 +3,7 @@
 import { gql } from "@apollo/client";
 import client from "@/lib/apolloClient";
 import Link from "next/link";
+import { use } from "react";
 
 const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: ID!) {
@@ -20,12 +21,15 @@ const GET_POST_BY_SLUG = gql`
   }
 `;
 
-export default async function BlogPostPage({ params }) {
-  const { slug } = params;
-  const { data } = await client.query({
+export default function BlogPostPage({ params }) {
+  // Unwrap params using React.use()
+  const resolvedParams = use(params);
+  const { slug } = resolvedParams;
+  
+  const { data } = use(client.query({
     query: GET_POST_BY_SLUG,
     variables: { slug },
-  });
+  }));
 
   const post = data?.post;
 
@@ -38,7 +42,7 @@ export default async function BlogPostPage({ params }) {
         className="fixed inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `url("/ooorganize.svg")`,
-          backgroundSize: "cover",
+          backgroundSize: "732px 732px",
           backgroundPosition: "center",
           opacity: 0.5
         }}
