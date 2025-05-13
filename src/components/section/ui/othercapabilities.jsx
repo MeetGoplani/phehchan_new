@@ -27,24 +27,24 @@ const OtherCapabilities = () => {
                 </div>
 
                 <p className="text-gray-600 mb-6">
-                  Legal solutions for technology companies and digital products
+                  Solutions for tech and digital growth
                 </p>
 
                 <div className="space-y-3">
                   {/* Tech Services */}
                   <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
                     <span className="text-[#0f304f] mr-2">•</span>
-                    <span className="text-gray-700">web development</span>
+                    <span className="text-gray-700">Web Development</span>
                   </div>
 
                   <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
                     <span className="text-[#0f304f] mr-2">•</span>
-                    <span className="text-gray-700">App development</span>
+                    <span className="text-gray-700">App Development</span>
                   </div>
 
                   <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
                     <span className="text-[#0f304f] mr-2">•</span>
-                    <span className="text-gray-700">CMS solutions</span>
+                    <span className="text-gray-700">CMS Solutions</span>
                   </div>
 
                   <div className="flex items-start cursor-pointer hover:text-[#0f304f] transition-colors">
@@ -64,9 +64,7 @@ const OtherCapabilities = () => {
                   <h3 className="text-2xl font-bold">Marketing</h3>
                 </div>
 
-                <p className="text-gray-600 mb-6">
-                  Legal compliance for advertising and marketing campaigns
-                </p>
+                <p className="text-gray-600 mb-6">Helping brands grow</p>
 
                 <div className="space-y-3">
                   {/* Ads Services */}
@@ -83,8 +81,6 @@ const OtherCapabilities = () => {
                       Creative Direction & Brand Communication
                     </span>
                   </div>
-
-                  
                 </div>
               </div>
             </div>

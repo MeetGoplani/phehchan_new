@@ -1,3 +1,5 @@
+"use client";
+
 import { gql } from "@apollo/client";
 import client from "@/lib/apolloClient";
 import Link from "next/link";
@@ -30,16 +32,15 @@ export default async function BlogPostPage({ params }) {
   if (!post) return <p>Post not found</p>;
 
   return (
-    <div className="relative min-h-screen">
-      {/* Grainy background effect using the provided image */}
-      <div
+    <div className="relative min-h-screen bg-[#ffffff]">
+      {/* SVG background from public folder */}
+      <div 
         className="fixed inset-0 z-0 pointer-events-none"
         style={{
-          backgroundColor: "#f8f8f8",
-          backgroundImage: `url("https://i0.wp.com/css-tricks.com/wp-content/uploads/2021/09/noisy-gradient.png?fit=2400%2C1200&amp;ssl=1")`,
+          backgroundImage: `url("/ooorganize.svg")`,
           backgroundSize: "cover",
-          backgroundBlendMode: "multiply", // Changed from soft-light to multiply
-          opacity: 0.3, // Increased from 0.1 to 0.2
+          backgroundPosition: "center",
+          opacity: 0.5
         }}
       ></div>
 

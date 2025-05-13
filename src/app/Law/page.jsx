@@ -1,11 +1,17 @@
-"use client"
-import TextCarousel from '@/components/section/common/textcarousel';
-import dynamic from 'next/dynamic';
+"use client";
+import TextCarousel from "@/components/section/common/textcarousel";
+import dynamic from "next/dynamic";
 import React from "react";
 
 // Dynamically import components that might use window
-const ThreePartText = dynamic(() => import("@/components/section/common/3parttext"), { ssr: false });
-const FullWidthBanner = dynamic(() => import("@/components/section/common/fullwidthimg"), { ssr: false });
+const ThreePartText = dynamic(
+  () => import("@/components/section/common/3parttext"),
+  { ssr: false }
+);
+const FullWidthBanner = dynamic(
+  () => import("@/components/section/common/fullwidthimg"),
+  { ssr: false }
+);
 
 const LawPage = () => {
   return (
@@ -28,13 +34,19 @@ const LawPage = () => {
         ))}
       </div> */}
 
-      <ThreePartText
-        heading="COMPLIANT CAMPAIGN EXPERTISE"
-      />
+      <ThreePartText heading="COMPLIANT CAMPAIGN EXPERTISE" />
       <ThreePartText
         heading=""
-        subheading="Pre-publication Advertising Advice and Due Diligence"
-        content="With a vast and multi-dimensional experience in the industry, we know all the right ways to get your advertising communication right the first time Our first hand experience in working closely with ASCI provides us with unique expertise and insights to address your ASCI related concerns We provide advertising advice to advertisers and advertising agencies to identify weak spots in their proposed advertising communicationFor confidential projects it is crucial that advertiser receive this advice without any fear of breach of confidentiality and in super prompt timeline We provide recommendations on how the advertisement may be worded so as to make the communication 'complaint proof' When it comes to advertising communication, you can rely on Tap-a-Gain for a thorough due diligence Be proactive and ensure that your ads are complying with the law of the land, advertising regulations and complete the due diligence for advertising compliance"
+        subheading="Pre-Publication Advertising Advice and Due Diligence"
+        content="At Phehchan Brand Solutions, we don’t just help you say it right — we help you get it right the first time.
+
+With deep, hands-on experience in the advertising world — and having worked closely with the Advertising Standards Council of India (ASCI) — we bring rare insight and sharp judgment to ensure your campaigns are not just creative, but compliant.
+
+We work with advertisers and agencies to spot the blind spots before they become liabilities. For sensitive or high-stakes projects, we offer fast, confidential advice that you can trust — no leaks, no delays.
+
+Our mission is simple: to help you craft communication that’s bold, effective, and bulletproof. From fine-tuning your language to reworking your messaging, we’ll guide you on how to make your ads ‘complaint-proof’ — without diluting your brand’s voice.
+
+With Phehchan Brand Solutions, advertising due diligence isn’t a box to tick — it’s a strategic edge. Be proactive. Protect your brand. And ensure your message always lands exactly the way it should — clear, compelling, and compliant."
         rightContent=""
         // waitlistLink={{
         //   text: "Join the Waitlist",
@@ -50,11 +62,13 @@ const LawPage = () => {
       <ThreePartText
         heading=""
         subheading="Advertisement Complaint Management"
-        content="Received a complaint against your advertisement? Fret not, we are here to deal with it
-If you face with ASCI investigation, we provide you with short term as well as long term strategy to manage ASCI challenge
-We help advertisers defend their advertising communication, ensure your side is represented well and your responses are comprehensive
-We provide you with tactical ways to close out the complaints
-In case of adverse ruling, we work with your team to arrive at a solution that is most pragmatic and effective"
+        content="Received a complaint against your advertisement? We’re here to help you address it effectively.
+
+If you're facing an ASCI investigation, Phehchan Brand Solutions supports you with both short-term actions and long-term strategies to manage the situation. We assist advertisers in defending their communication, ensuring that your position is well-represented and your responses are thorough and aligned with ASCI procedures.
+
+We help you develop tactical approaches to resolve complaints efficiently. In cases where the ruling is not in your favour, we work with your team to arrive at a solution that is both pragmatic and aligned with your brand objectives.
+
+Our aim is to protect your brand’s integrity while helping you navigate regulatory challenges with clarity and confidence."
         rightContent=""
         // waitlistLink={{
         //   text: "Join the Waitlist",
@@ -70,11 +84,13 @@ In case of adverse ruling, we work with your team to arrive at a solution that i
       <ThreePartText
         heading=""
         subheading="Competitor Challenges"
-        content="Competitor getting away with over the top claims ? Challenge them - delegate that sweet task to us!
-In advertising, you can not let competitor get ahead based on false claims and misleading advertisements
-Product superiority claims are super important so also important is the level playing field.
-We help advertisers develop a competitor challenge strategy
-We would be happy to assist you to build a strong case against competitor advertisements"
+        content="⁠Competitor getting away with over-the-top claims? Challenge them — and let us take care of it.
+
+In advertising, false or misleading claims can distort the market and give unfair advantage. Product superiority matters — and so does maintaining a level playing field.
+
+At Phehchan Brand Solutions, we work with advertisers to develop and execute effective competitor challenge strategies. From assessing the claim to framing a strong, well-structured challenge, we guide you through the process with clarity and confidence.
+
+We’re here to ensure that advertising remains fair, transparent, and competitive — just the way it should be."
         rightContent=""
         // waitlistLink={{
         //   text: "Join the Waitlist",
