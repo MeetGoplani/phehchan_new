@@ -22,7 +22,7 @@ const DisclaimerModal = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
@@ -32,8 +32,8 @@ const DisclaimerModal = () => {
       {/* Modal */}
       <div
         className={cn(
-          "relative w-full max-w-md bg-white dark:bg-slate-900 rounded-lg shadow-lg",
-          "p-6 md:p-8 animate-in zoom-in-95 duration-200",
+          "relative w-full max-w-4xl bg-white dark:bg-slate-900 rounded-lg shadow-lg",
+          "flex flex-col max-h-[90vh]", // Added max height constraint
           "dark:border dark:border-slate-800"
         )}
         role="dialog"
@@ -54,7 +54,7 @@ const DisclaimerModal = () => {
         </button> */}
 
         {/* Content */}
-        <div className="space-y-4">
+        <div className="p-6 md:p-8 space-y-4 overflow-y-auto">
           <h2
             id="disclaimer-title"
             className="text-xl font-semibold text-gray-900 dark:text-white text-center underline"
@@ -64,37 +64,70 @@ const DisclaimerModal = () => {
 
           <div className="prose prose-sm dark:prose-invert max-w-none">
             <p className="font-bold">
-              Welcome to our website. Before you proceed, please read and
-              understand the following disclaimer:
+              Under the rules of the Bar Council of India, Phehchan Brand
+              Solutions (the "Firm") is prohibited from soliciting work or
+              advertising. By clicking, "I Agree" below, the user acknowledges
+              that:
             </p>
 
-            <p>
-              The information presented on this website is not legal advice. We
-              encourage you to perform further research on the topics described
-              here, and if you have any questions or would like to speak to one
-              of our  lawyers, please do not hesitate to contact us.
-              Submitting any forms on this website does not automatically
-              establish a client-lawyer relationship
-            </p>
+            <ul className="space-y-2 list-disc pl-5">
+              <li>
+                There has been no advertisement, personal communication,
+                solicitation, invitation or inducement of any sort whatsoever from
+                the Firm or any of its members to solicit any work or advertise
+                through this website
+              </li>
+              <li>
+                The purpose of this website is to provide the user with
+                information about the Firm, its practice areas, its advocates and
+                solicitors
+              </li>
+              <li>
+                The user wishes to gain more information about the Firm for
+                his/her own information and personal/ professional use
+              </li>
+              <li>
+                The information about the Firm is provided to
+                the user only on his/ her specific request and any information
+                obtained or materials downloaded from this website are completely
+                at the user's volition and any transmission, receipt or use of
+                this website would not create any lawyer-client relationship
+              </li>
+              <li>
+                This website is not intended to be a source of
+                advertising or solicitation and the contents hereof should not be
+                construed as legal advice in any manner whatsoever
+              </li>
+              <li>
+                The Firm is not liable for any consequence of
+                any action taken by the user relying on material/ information
+                provided under this website. In cases where the user requires any
+                assistance, he/she must seek independent legal advice
+              </li>
+              <li>
+                The content of this website is Intellectual
+                Property of the Firm
+              </li>
+            </ul>
 
             <p>
               By continuing to use this website, you acknowledge that you have
               read and understood this disclaimer.
             </p>
           </div>
+        </div>
 
-          <div className="pt-4 flex justify-center">
-            <button
-              onClick={closeModal}
-              className={cn(
-                "px-5 py-2.5 rounded-md font-medium text-sm",
-                "bg-primary text-primary-foreground hover:bg-primary/90",
-                "transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-              )}
-            >
-              I Understand
-            </button>
-          </div>
+        <div className="p-6 pt-0 flex justify-center border-t">
+          <button
+            onClick={closeModal}
+            className={cn(
+              "px-5 mt-5 py-2.5 rounded-md font-medium text-sm",
+              "bg-primary text-primary-foreground hover:bg-primary/90",
+              "transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            )}
+          >
+            I Understand
+          </button>
         </div>
       </div>
     </div>
