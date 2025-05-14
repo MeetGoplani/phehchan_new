@@ -78,12 +78,14 @@ const Footer = () => {
                 </p>
                 <p className="text-sm mb-3">
                   <span className="font-medium">Email:</span>{" "}
-                  <a href="mailto:contact@phehchan.com" className="hover:underline">
+                  <a
+                    href="mailto:contact@phehchan.com"
+                    className="hover:underline"
+                  >
                     contact@phehchan.com
                   </a>
                 </p>
               </div>
-
               {/* Social media icons - left aligned on mobile, right aligned on desktop */}
               <div className="flex md:justify-end space-x-4 mb-4">
                 <Link
@@ -118,6 +120,11 @@ const Footer = () => {
               <p className="text-xs md:text-right">
                 © 2024 Phehchan. All rights reserved.
               </p>
+              &nbsp;
+              <p className="text-xs md:text-right">
+                Another nerdy masterpiece by{" "}
+                <a href="https://www.nerdshouse.com/" className="hover:underline">Nerd's House </a>
+              </p>
             </div>
           </div>
 
@@ -131,9 +138,9 @@ const Footer = () => {
                 The information presented on this website is not legal advice.
                 We encourage you to perform further research on the topics
                 described here, and if you have any questions or would like to
-                speak to one of our  lawyers, please do not hesitate
-                to contact us. Submitting any forms on this website does not
-                automatically establish a client-lawyer relationship
+                speak to one of our lawyers, please do not hesitate to contact
+                us. Submitting any forms on this website does not automatically
+                establish a client-lawyer relationship
               </Link>
             </div>
           </div>
