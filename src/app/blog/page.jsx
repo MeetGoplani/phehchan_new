@@ -54,12 +54,12 @@ function BlogPageContent() {
               className="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg overflow-hidden hover:shadow-lg transition-all group"
             >
               {/* Image section */}
-              <div className="relative h-56 m-2.5 overflow-hidden rounded-md">
+              <div className="relative h-56 m-2.5 overflow-hidden rounded-lg">
                 {post.featuredImage?.node?.sourceUrl && (
                   <img
                     src={post.featuredImage.node.sourceUrl}
                     alt={post.featuredImage.node.altText || "Blog image"}
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform rounded-lg overflow-hidden duration-300  group-hover:scale-105 "
                   />
                 )}
               </div>

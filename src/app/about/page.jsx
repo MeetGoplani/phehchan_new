@@ -25,13 +25,13 @@ const AboutPage = () => {
          "Our deep experience in regulated sectors  including healthcare, wellness, finance, education, and consumer goods  allows us to operate at the intersection of innovation and governance. We help brands in high-trust industries scale confidently, with messaging that resonates with audiences while meeting all legal standards, including ASCI, FSSAI, DPCO, DPDP, and global data privacy laws like GDPR.",
      },
      {
-       icon: ".3",
+       icon: "3.",
        title: "Fractional CMO Advantage:",
        description:
          " Through our Fractional CMO model, we provide leadership-level marketing strategy paired with on-ground execution  all anchored by legal clarity. This model is ideal for founders and CMOs looking to accelerate growth without compromising compliance. We're agile, strategic, and structured building marketing systems that are creative, contractually sound, and investor-friendly.",
      },
      {
-       icon: ".4",
+       icon: "4.",
        title: "The Phehchan Promise:",
        description:
          "We don't just deliver campaigns, we deliver peace of mind. With PBS, you get more than storytelling; you get strategic clarity, brand protection, and executional excellence. We ensure every message you put into the world reflects your values, reaches the right audience, and stands the test of both public perception and legal review. That's the Phehchan Guarantee  creative that converts, with compliance built in.",
@@ -72,7 +72,7 @@ const AboutPage = () => {
           },
           // Additional items...
         ]}
-        imageSrc="/untitled-8.jpg"
+        imageSrc="/Untitled-8.jpg"
         imageAlt="Growth strategy process"
       />
 

@@ -90,6 +90,7 @@ const AboutSection = () => {
                 {/* Social media links - moved inside the right column and positioned below text */}
                 <div className="mt-8 flex space-x-4">
                   <a
+                    target="_blank"
                     href="https://www.facebook.com/share/169C5Pk2VV/?mibextid=wwXIfr"
                     aria-label="Facebook"
                     className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -108,6 +109,7 @@ const AboutSection = () => {
                     </svg>
                   </a>
                   <a
+                    target="_blank"
                     href="https://www.instagram.com/phehchan.brandsolutions?igsh=NnI4MXFsZGVjNDhv"
                     aria-label="Instagram"
                     className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -127,6 +129,7 @@ const AboutSection = () => {
                   </a>
 
                   <a
+                    target="_blank"
                     href="https://www.linkedin.com/company/phehchan-brand-solutions/"
                     aria-label="LinkedIn"
                     className="text-gray-600 hover:text-gray-900 transition-colors"

@@ -3,7 +3,8 @@
 import { gql } from "@apollo/client";
 import client from "@/lib/apolloClient";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
+import { Loader2 } from "lucide-react";
 
 const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: ID!) {
@@ -25,12 +26,15 @@ export default function BlogPostPage({ params }) {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   
+  // Unwrap params using React.use()
+  const resolvedParams = use(params);
+  
   useEffect(() => {
     const fetchPost = async () => {
       try {
         const { data } = await client.query({
           query: GET_POST_BY_SLUG,
-          variables: { slug: params.slug },
+          variables: { slug: resolvedParams.slug },
         });
         
         setPost(data?.post);
@@ -42,9 +46,13 @@ export default function BlogPostPage({ params }) {
     };
     
     fetchPost();
-  }, [params.slug]);
+  }, [resolvedParams.slug]);
   
-  if (loading) return <p>Loading...</p>;
+  if (loading) return (
+    <div className="flex min-h-screen items-center justify-center w-full">
+      <Loader2 className="animate-spin " /> 
+    </div>
+  );
   if (!post) return <p>Post not found</p>;
 
   return (
@@ -109,7 +117,7 @@ export default function BlogPostPage({ params }) {
                 <img
                   src={post.featuredImage.node.sourceUrl}
                   alt={post.featuredImage.node.altText || "Post image"}
-                  className="w-auto h-[400px] rounded-lg shadow-md object-contain max-h-[500px]"
+                  className="lg:w-auto lg:h-[400px] rounded-lg object-contain max-h-[500px]"
                 />
               </div>
             )}

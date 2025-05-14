@@ -89,6 +89,7 @@ const Footer = () => {
               {/* Social media icons - left aligned on mobile, right aligned on desktop */}
               <div className="flex md:justify-end space-x-4 mb-4">
                 <Link
+                  target="_blank"
                   href="https://www.instagram.com/phehchan.brandsolutions?igsh=NnI4MXFsZGVjNDhv"
                   className="text-white hover:text-gray-400 transition-colors"
                 >
@@ -103,6 +104,7 @@ const Footer = () => {
                   </svg>
                 </Link>
                 <Link
+                  target="_blank"
                   href="https://www.linkedin.com/company/phehchan-brand-solutions/"
                   className="text-white hover:text-gray-400 transition-colors"
                 >
@@ -123,7 +125,12 @@ const Footer = () => {
               &nbsp;
               <p className="text-xs md:text-right">
                 Another nerdy masterpiece by{" "}
-                <a href="https://www.nerdshouse.com/" className="hover:underline">Nerd's House </a>
+                <a
+                  href="https://www.nerdshouse.com/"
+                  className="hover:underline"
+                >
+                  Nerd's House{" "}
+                </a>
               </p>
             </div>
           </div>
