@@ -1202,8 +1202,8 @@ export default function InfiniteMenu({ items = [] }) {
       />
 
       {/* Mobile-only instruction text */}
-      <div className="block md:hidden text-center text-sm mt-2 text-white absolute bottom-2 left-0 right-0 z-10">
-        hold to see the magic happen
+      <div className="block md:hidden text-center text-sm mt-2 text-white shadow-md shadow-white absolute bottom-2 left-0 right-0 z-10 border rounded-full w-fit mx-auto px-4 animate-bounce">
+        Discover the magic - just hold the logo
       </div>
 
       {activeItem && (

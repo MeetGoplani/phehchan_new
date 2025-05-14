@@ -83,14 +83,14 @@ const FullWidthBanner = ({
 
         {/* Custom Title (if provided) */}
         {customTitle && (
-          <h1 className="sm:text-2xl md:text-2xl mt-8 font-bold text-white mb-0">
+          <p className="sm:text-2xl text-md md:text-2xl text-white mt-8 max-w-2xl font-bold">
             {customTitle}
-          </h1>
+          </p>
         )}
 
         {/* Custom Subtitle or Default Subtitle */}
         {(customSubtitle || subtitle) && (
-          <p className="text-2xl md:text-2xl text-white mt-0 max-w-2xl font-bold">
+          <p className="sm:text-2xl text-md md:text-2xl text-white mt-0 max-w-2xl font-bold">
             {customSubtitle || subtitle}
           </p>
         )}

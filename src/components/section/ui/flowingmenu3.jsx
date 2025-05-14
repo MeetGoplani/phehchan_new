@@ -26,7 +26,7 @@ export default function flowingmenu3() {
 
   return (
     <main className="overflow-hidden">
-      <div className="h-[5vh]" />
+      <div className="h-[2vh] sm:h-[5vh]" />
       <div ref={container} className="relative w-full">
         <Slide
           src="/img2tech.jpg"
@@ -63,7 +63,7 @@ const Slide = (props) => {
 const Phrase3 = ({ src }) => {
   return (
     <div className={"px-3 flex gap-3 items-center"}>
-      <p className="text-[4.25vw]">Tech</p>
+      <p className="text-[9.25vw] sm:text-[4.25vw]">Tech</p>
       <span className="relative h-[4.25vw] aspect-[4/2] rounded-full overflow-hidden">
         <Image style={{ objectFit: "cover" }} src={src} alt="image" fill />
       </span>

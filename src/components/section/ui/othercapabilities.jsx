@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const OtherCapabilities = () => {
   return (
-    <div className="w-full py-16 bg-white">
+    <div className="w-full py-10 sm:py-16 bg-white">
       <div className="container mx-auto px-4">
         {/* Main Heading */}
         <h2 className="text-4xl font-bold text-center mb-4">

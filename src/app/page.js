@@ -24,7 +24,7 @@ export default function Home() {
         textColor="#000000" 
       />
       
-      <div style={{ height: '700px', position: 'relative' }}>
+      <div style={{ height: '540px', position: 'relative' }}>
         <InfiniteMenu items={items}/>
       </div>
       <FlowingMenu />

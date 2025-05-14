@@ -89,7 +89,7 @@ const HalfImageHalfText = ({
   };
 
   return (
-    <div className="relative w-full overflow-hidden py-12 md:py-20">
+    <div className="relative w-full overflow-hidden py-6 md:py-20">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center">
           {/* Text Section */}

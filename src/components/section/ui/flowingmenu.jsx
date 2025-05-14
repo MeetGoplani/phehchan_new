@@ -26,7 +26,7 @@ export default function flowingmenu() {
 
   return (
     <main className="overflow-hidden">
-      <div className="h-[5vh]" /> {/* Reduced from 100vh to 70vh */}
+      <div className="h-[2vh] sm:h-[5vh]" /> {/* Reduced from 100vh to 70vh */}
       <div ref={container}>
         <Slide
           src="/img5marketing.jpg"
@@ -81,7 +81,7 @@ const Slide = (props) => {
 const Phrase = ({ src }) => {
   return (
     <div className={"px-3 flex gap-3 items-center"}> {/* Reduced padding and gap */}
-      <p className="text-[4.25vw]">Marketing</p> {/* Reduced from 7.5vw to 5.25vw (30% reduction) */}
+      <p className="text-[9.25vw] sm:text-[4.25vw]">Marketing</p> {/* Reduced from 7.5vw to 5.25vw (30% reduction) */}
       <span className="relative h-[4.25vw] aspect-[4/2] rounded-full overflow-hidden"> {/* Reduced from 7.5vw to 5.25vw */}
         <Image style={{ objectFit: "cover" }} src={src} alt="image" fill />
       </span>
