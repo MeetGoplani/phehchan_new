@@ -4,7 +4,7 @@ import React from 'react';
 
 const FullWidthText = ({
   companyName = "MOTIVUS Law",
-  companyDescription = "is a Toronto-based immigration law firm primarily focusing on US and Canadian Immigration.",
+  companyDescription = "is a Toronto-based  law firm primarily focusing on US and Canadian .",
   additionalText = "We are devoted to providing a first-rate customer experience through increased efficiency and unparalleled communication.",
   backgroundColor = "#f5f5f5",
   textColor = "#000000",

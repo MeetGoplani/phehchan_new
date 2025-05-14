@@ -131,7 +131,7 @@ const Footer = () => {
                 The information presented on this website is not legal advice.
                 We encourage you to perform further research on the topics
                 described here, and if you have any questions or would like to
-                speak to one of our immigration lawyers, please do not hesitate
+                speak to one of our  lawyers, please do not hesitate
                 to contact us. Submitting any forms on this website does not
                 automatically establish a client-lawyer relationship
               </Link>
