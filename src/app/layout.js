@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'  
 import Navbar from "@/components/section/common/navbar";
 import Footer from "@/components/section/common/footer";
 import LogoSlider from "@/components/section/ui/rotatingimg";
@@ -37,6 +38,8 @@ export default function RootLayout({ children }) {
         <Footer />
         <TawkToScript /> {/* Injects Tawk.to chat widget */}
       </body>
+       <GoogleAnalytics gaId="G-T35TM88RBP" />
     </html>
   );
 }
+
